@@ -1223,9 +1223,9 @@
     <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
   </append>
   <!--****Set Dead Zombie Dead Body Hit Points Here****-->
-  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='DeadBodyHitPoints']/@value">300</set>
+  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie') or (contains(@name, 'Zombie'))]/property[@name='DeadBodyHitPoints']/@value">300</set>
   <!--****Set Dead Zombie Dead Body Stay Time Here****-->
-  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='TimeStayAfterDeath']/@value">300</set>
+  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie') or (contains(@name, 'Zombie'))]/property[@name='TimeStayAfterDeath']/@value">300</set>
   <!--Begin Khaine's Return of Behemoth Code-->
   <append xpath="/entity_classes">
     <entity_class name="zombieBehemoth" extends="zombieTemplateMale">
