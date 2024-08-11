@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Remove Open/Close Time-->
+  <removeattribute xpath="/traders/trader_info/@close_time" />
+  <removeattribute xpath="/traders/trader_info/@open_time" />
+  <!--Trader PC-->
+  <append xpath="/traders">
+    <trader_info id="13" reset_interval="1" override_buy_markup="3" allow_sell="false">
+      <trader_items>
+        <!--Work_Sations -->
+        <item name="forge" />
+        <item name="workbench" />
+        <item name="cementMixer" />
+        <item name="chemistryStation" />
+        <!--Vehicles -->
+        <item name="vehicleWheels" />
+        <item name="smallEngine" />
+        <!--Bicycle -->
+        <item name="vehicleBicycleChassis" />
+        <item name="vehicleBicycleHandlebars" />
+        <item name="vehicleBicyclePlaceable" />
+        <!--Minibike -->
+        <item name="vehicleMinibikeChassis" />
+        <item name="vehicleMinibikeHandlebars" />
+        <item name="vehicleMinibikePlaceable" />
+        <!--Motorcycle -->
+        <item name="vehicleMotorcycleChassis" />
+        <item name="vehicleMotorcycleHandlebars" />
+        <item name="vehicleMotorcyclePlaceable" />
+        <!--4x4 -->
+        <item name="vehicleTruck4x4Chassis" />
+        <item name="vehicleTruck4x4Accessories" />
+        <item name="vehicleTruck4x4Placeable" />
+        <!--Gyro -->
+        <item name="vehicleGyroCopterChassis" />
+        <item name="vehicleGyroCopterAccessories" />
+        <item name="vehicleGyrocopterPlaceable" />
+        <!--Tools -->
+        <item name="meleeToolAllSteelParts" count="1,3" />
+        <item name="meleeToolPickT2SteelPickaxe" quality="2,5" />
+        <item name="meleeToolShovelT2SteelShovel" quality="2,5" />
+        <item name="meleeToolPickT3Auger" quality="2,5" />
+        <item name="meleeToolAxeT2SteelAxe" quality="2,5" />
+        <item name="meleeToolAxeT3Chainsaw" quality="2,5" />
+        <item name="meleeToolRepairT3Nailgun" />
+        <item name="meleeToolSalvageT2Ratchet" quality="1,3" />
+        <item name="meleeToolSalvageT3ImpactDriver" quality="2,5" />
+        <item name="meleeWpnSledgeT3SteelSledgehammer" quality="2,5" />
+        <item name="toolForgeCrucible" />
+        <item name="smallEngine" />
+        <item name="meleeToolRepairT0StoneAxe" quality="2,6" />
+        <item name="meleeToolPickT1IronPickaxe" quality="1,4" />
+        <item name="meleeToolShovelT0StoneShovel" quality="2,6" />
+        <item name="meleeToolShovelT1IronShovel" quality="1,4" />
+        <item name="meleeToolAxeT1IronFireaxe" quality="1,4" />
+        <item name="meleeWpnSledgeT1IronSledgehammer" quality="1,4" />
+        <item name="meleeToolRepairT1ClawHammer" quality="1,4" />
+        <item name="meleeToolSalvageT1Wrench" prob="0.8" quality="1,4" />
+        <item name="resourceRepairKit" count="1,4" />
+        <item name="toolAnvil" count="1" />
+        <item name="toolBellows" prob="0.7" />
+        <item name="resourceForgedIron" count="5,50" />
+        <item name="resourceForgedSteel" count="5,50" />
+        <item name="meleeToolPaintTool" prob="0.5" />
+        <item name="meleeToolWireTool" />
+        <!--Resources -->
+        <item name="resourceWood" count="50,1000" />
+        <item name="resourceCrushedSand" count="50,500" />
+        <item name="resourcePotassiumNitratePowder" count="20,60" />
+        <item name="resourceCoal" count="20,60" />
+        <item name="resourceScrapLead" count="5,90" />
+        <item name="resourceScrapBrass" count="30,80" />
+        <item name="resourceScrapIron" count="25,250" />
+        <item name="resourceForgedIron" count="5,50" />
+        <item name="resourceForgedSteel" count="5,50" />
+        <item name="resourceMetalPipe" count="5,20" />
+        <item name="resourceOilShale" count="20,60" />
+        <item name="resourceOil" count="3,10" />
+        <item name="resourceGlue" count="5,15" />
+        <item name="resourceDuctTape" count="10,30" />
+        <item name="resourceCloth" count="5,100" />
+        <item name="resourceLeather" count="5,25" />
+        <item name="resourceScrapPolymers" count="30,150" />
+        <item name="resourceGunPowder" count="3,30" />
+        <item name="resourceAcid" count="1" prob="0.6" />
+        <item name="resourceAnimalFat" count="5,40" />
+        <item name="resourceHeadlight" count="5,20" prob="0.6" />
+        <item name="resourceLazerGem" prob="0.6"></item>
+        <item name="resourceSpring" count="5,30" />
+        <item name="resourceElectricParts" count="15,50" prob="0.7" />
+        <item name="resourceMechanicalParts" count="15,80" prob="0.8" />
+        <item name="resourceLockPick" count="1,10" />
+        <item name="candle" count="5,20" />
+        <item name="bucketEmpty" prob="0.6"></item>
+        <!--Medical -->
+        <item name="medicalFirstAidKit" />
+        <item name="toolBeaker" />
+        <item name="drugAntibiotics" />
+        <item name="drugFortBites" />
+        <item name="drugRecog" />
+        <item name="drugSteroids" />
+        <item name="drinkJarGrandpasMoonshine" />
+        <item name="drinkJarGrandpasAwesomeSauce" />
+        <item name="drinkJarGrandpasLearningElixir" />
+        <item name="drugPainkillers" />
+        <item name="medicalFirstAidBandage" count="1,4" />
+        <item name="medicalBandage" />
+        <item name="medicalBloodBag" count="2,4" />
+        <item name="drugVitamins" />
+        <item name="medicalSplint" />
+        <item group="rareMedicine" />
+        <!-- HPammo&APammo -->
+        <item name="ammo9mmBulletHP" count="40,150" />
+        <item name="ammo762mmBulletHP" count="20,100" />
+        <item name="ammo44MagnumBulletHP" count="15,60" prob="0.5" />
+        <item name="ammoShotgunBreachingSlug" count="15,100" />
+        <item name="ammoArrowIron" count="20,60" />
+        <item name="ammoArrowFlaming" count="20,60" />
+        <item name="ammoCrossbowBoltIron" count="20,60" />
+        <item name="ammoCrossbowBoltFlaming" count="20,60" />
+        <item name="ammo9mmBulletAP" count="40,150" />
+        <item name="ammo762mmBulletAP" count="20,100" />
+        <item name="ammo44MagnumBulletAP" count="15,60" prob="0.5" />
+        <item name="ammoShotgunSlug" count="6,25" prob="0.2" />
+        <item name="ammoRocketHE" count="1,4" />
+        <item name="ammoRocketFrag" count="1,4" />
+        <item name="ammoArrowSteelAP" count="20,60" />
+        <item name="ammoArrowExploding" count="20,60" />
+        <item name="ammoCrossbowBoltSteelAP" count="20,60" />
+        <item name="ammoCrossbowBoltExploding" count="20,60" />
+        <!--Throwables -->
+        <item name="thrownAmmoPipeBomb" count="5,20" />
+        <item name="thrownGrenadeContact" count="5,20" />
+        <item name="thrownGrenade" count="5,20" />
+        <item name="thrownTimedCharge" count="5,20" />
+        <item name="thrownDynamite" count="5,20" />
+        <item name="thrownAmmoMolotovCocktail" count="5,20" />
+        <!--Books & Magazines -->
+        <item name="roboticsSkillMagazine" count="1,3" />
+        <item name="vehiclesSkillMagazine" count="1,3" />
+        <item name="electricianSkillMagazine" count="1,3" />
+        <item name="trapsSkillMagazine" count="1,3" />
+        <item name="foodSkillMagazine" count="1,3" />
+        <item name="seedSkillMagazine" count="1,3" />
+        <item name="medicalSkillMagazine" count="1,3" />
+        <item name="knucklesSkillMagazine" count="1,3" />
+        <item name="armorSkillMagazine" count="1,3" />
+        <item name="handgunsSkillMagazine" count="1,3" />
+        <item name="shotgunsSkillMagazine" count="1,3" />
+        <item name="riflesSkillMagazine" count="1,3" />
+        <item name="machineGunsSkillMagazine" count="1,3" />
+        <item name="explosivesSkillMagazine" count="1,3" />
+        <item name="bowsSkillMagazine" count="1,3" />
+        <item name="spearsSkillMagazine" count="1,3" />
+        <item name="bladesSkillMagazine" count="1,3" />
+        <item name="clubsSkillMagazine" count="1,3" />
+        <item name="harvestingToolsSkillMagazine" count="1,3" />
+        <item name="repairToolsSkillMagazine" count="1,3" />
+        <item name="salvageToolsSkillMagazine" count="1,3" />
+        <item name="sledgehammersSkillMagazine" count="1,3" />
+        <item name="workstationSkillMagazine" count="1,3" />
+        <item name="roboticsSkillMagazine" count="1,3" />
+        <item name="vehiclesSkillMagazine" count="1,3" />
+        <item name="electricianSkillMagazine" count="1,3" />
+        <item name="trapsSkillMagazine" count="1,3" />
+        <item name="bookRangersArrowRecovery" />
+        <item name="bookRangersCripplingShot" />
+        <item name="bookRangersKnockdown" />
+        <item name="bookRangersFlamingArrows" />
+        <item name="bookRangersAPAmmo" />
+        <item name="bookRangersExplodingBolts" />
+        <item name="bookRangersForestGuide" />
+        <item name="bookArtOfMiningLuckyStrike" />
+        <item name="bookArtOfMiningDiamondTools" />
+        <item name="bookArtOfMiningCoffee" />
+        <item name="bookArtOfMiningBlackStrap" />
+        <item name="bookArtOfMiningPallets" />
+        <item name="bookArtOfMiningAvalanche" />
+        <item name="bookArtOfMiningDamage" />
+        <item name="bookAutoWeaponsDamage" />
+        <item name="bookAutoWeaponsRagdoll" />
+        <item name="bookAutoWeaponsMaintenance" />
+        <item name="bookAutoWeaponsRecoil" />
+        <item name="bookAutoWeaponsDrumMag" />
+        <item name="bookAutoWeaponsUncontrolledBurst" />
+        <item name="bookAutoWeaponsMachineGuns" />
+        <item name="bookBatterUpFoulBalls" />
+        <item name="bookBatterUpBigHits" />
+        <item name="bookBatterUpStealingBases" />
+        <item name="bookBatterUpKnockdown" />
+        <item name="bookBatterUpSlowPitch" />
+        <item name="bookBatterUpMaintenance" />
+        <item name="bookBatterUpMetalChain" />
+        <item name="bookEnforcerAPAmmo" />
+        <item name="bookEnforcerApparel" />
+        <item name="bookEnforcerCriminalPursuit" />
+        <item name="bookEnforcerHPAmmo" />
+        <item name="bookEnforcerDamage" />
+        <item name="bookEnforcerIntimidation" />
+        <item name="bookEnforcerPunks" />
+        <item name="bookFiremansAlmanacSpeed" />
+        <item name="bookFiremansAlmanacAxes" />
+        <item name="bookFiremansAlmanacEquipment" />
+        <item name="bookFiremansAlmanacPrevention" />
+        <item name="bookFiremansAlmanacHarvest" />
+        <item name="bookFiremansAlmanacHeat" />
+        <item name="bookFiremansAlmanacMolotov" />
+        <item name="bookGreatHeistAdrenalineFall" />
+        <item name="bookGreatHeistGoldRush" />
+        <item name="bookGreatHeistClaimed" />
+        <item name="bookGreatHeistGems" />
+        <item name="bookGreatHeistMotionDetection" />
+        <item name="bookGreatHeistSafes" />
+        <item name="bookGreatHeistSprintSneak" />
+        <item name="bookHuntingJournalBears" />
+        <item name="bookHuntingJournalCoyotes" />
+        <item name="bookHuntingJournalDeer" />
+        <item name="bookHuntingJournalMountainLions" />
+        <item name="bookHuntingJournalVultures" />
+        <item name="bookHuntingJournalWolves" />
+        <item name="bookHuntingJournalSelfDefense" />
+        <item name="bookLuckyLooterAmmunition" />
+        <item name="bookLuckyLooterBooks" />
+        <item name="bookLuckyLooterBrass" />
+        <item name="bookLuckyLooterDukes" />
+        <item name="bookLuckyLooterFood" />
+        <item name="bookLuckyLooterLead" />
+        <item name="bookLuckyLooterMedical" />
+        <item name="bookNightStalkerArchery" />
+        <item name="bookNightStalkerBlades" />
+        <item name="bookNightStalkerSilentNight" />
+        <item name="bookNightStalkerSlumberParty" />
+        <item name="bookNightStalkerStealthDamage" />
+        <item name="bookNightStalkerThiefAdrenaline" />
+        <item name="bookNightStalkerTwilightThief" />
+        <item name="bookPistolPeteAPAmmo" />
+        <item name="bookPistolPeteDamage" />
+        <item name="bookPistolPeteHPAmmo" />
+        <item name="bookPistolPeteMaintenance" />
+        <item name="bookPistolPeteSteadyHand" />
+        <item name="bookPistolPeteSwissKnees" />
+        <item name="bookPistolPeteTakeAim" />
+        <item name="bookShotgunMessiahBreachingSlugs" />
+        <item name="bookShotgunMessiahDamage" />
+        <item name="bookShotgunMessiahLimbShot" />
+        <item name="bookShotgunMessiahMaintenance" />
+        <item name="bookShotgunMessiahMagazine" />
+        <item name="bookShotgunMessiahPartyStarter" />
+        <item name="bookShotgunMessiahSlugs" />
+        <item name="bookSniperAPAmmo" />
+        <item name="bookSniperControlledBreathing" />
+        <item name="bookSniperCripplingShot" />
+        <item name="bookSniperDamage" />
+        <item name="bookSniperHeadShot" />
+        <item name="bookSniperReload" />
+        <item name="bookSniperHPAmmo" />
+        <item name="bookUrbanCombatAdrenalineRush" />
+        <item name="bookUrbanCombatCigar" />
+        <item name="bookUrbanCombatRoomClearing" />
+        <item name="bookUrbanCombatJumping" />
+        <item name="bookUrbanCombatLandMines" />
+        <item name="bookUrbanCombatLanding" />
+        <item name="bookUrbanCombatSneaking" />
+        <item name="bookWasteTreasuresAcid" />
+        <item name="bookWasteTreasuresCloth" />
+        <item name="bookWasteTreasuresCoffins" />
+        <item name="bookWasteTreasuresDoors" />
+        <item name="bookWasteTreasuresHoney" />
+        <item name="bookWasteTreasuresSinks" />
+        <item name="bookWasteTreasuresWater" />
+        <item name="bookBarBrawling1BasicMoves" />
+        <item name="bookBarBrawling2DropABomb" />
+        <item name="bookBarBrawling3KillerInstinct" />
+        <item name="bookBarBrawling4FinishingMoves" />
+        <item name="bookBarBrawling5AdrenalineHealing" />
+        <item name="bookBarBrawling6RageMode" />
+        <item name="bookBarBrawling7BoozedUp" />
+        <item name="bookSpearHunter1Damage" />
+        <item name="bookSpearHunter2Maintenance" />
+        <item name="bookSpearHunter3Bleed" />
+        <item name="bookSpearHunter4KillMove" />
+        <item name="bookSpearHunter5RapidStrike" />
+        <item name="bookSpearHunter6PenetratingShaft" />
+        <item name="bookSpearHunter7QuickStrike" />
+        <item name="bookTechJunkie1Damage" />
+        <item name="bookTechJunkie2Maintenance" />
+        <item name="bookTechJunkie3APAmmo" />
+        <item name="bookTechJunkie4Shells" />
+        <item name="bookTechJunkie5Repulsor" />
+        <item name="bookTechJunkie6BatonCharge" />
+        <item name="bookTechJunkie7Hydraulics" />
+        <!--Melee_T1 -->
+        <item name="meleeWpnBladeT1HuntingKnife" quality="2,5" />
+        <item name="meleeWpnClubT1BaseballBat" quality="2,5" />
+        <item name="meleeWpnSpearT1IronSpear" quality="2,5" />
+        <item name="meleeWpnSledgeT1IronSledgehammer" quality="2,5" />
+        <item name="meleeWpnKnucklesT1IronKnuckles" quality="2,5" />
+        <!--Melee_T2 -->
+        <item name="meleeWpnBatonT2StunBaton" quality="2,5" />
+        <!--Melee_T3 -->
+        <item name="meleeWpnBladeT3Machete" quality="2,5" />
+        <item name="meleeWpnClubT3SteelClub" quality="2,5" />
+        <item name="meleeWpnSpearT3SteelSpear" quality="2,5" />
+        <item name="meleeWpnSledgeT3SteelSledgehammer" quality="2,5" />
+        <item name="meleeWpnKnucklesT3SteelKnuckles" quality="2,5"></item>
+        <!--Melee_T4-->
+        <item name="meleeKatanaSword" quality="2,5" />
+        <item name="meleeWpnKnucklesT4TitaniumKnuckles" quality="2,5"></item>
+        <!--Melee_T5-->
+        <item name="meleeLightSabreBlue" quality="2,5"></item>
+        <item name="meleeLightSabreGreen" quality="2,5"></item>
+        <item name="meleeLightSabreRed" quality="2,5"></item>
+        <!--Ranged_Weapons_T1 -->
+        <item name="gunBowT1WoodenBow" quality="2,5" />
+        <item name="gunHandgunT1Pistol" quality="2,5" />
+        <item name="gunShotgunT1DoubleBarrel" quality="2,5" />
+        <item name="gunRifleT1HuntingRifle" quality="2,5" />
+        <item name="gunMGT1AK47" quality="2,5" />
+        <item name="gunBotT1JunkSledge" quality="2,5" />
+        <!--Ranged_Weapons_T2 -->
+        <item name="gunBowT1IronCrossbow" quality="2,5" />
+        <item name="gunBowT3CompoundBow" quality="2,5" />
+        <item name="gunHandgunT2Magnum44" quality="2,5" />
+        <item name="gunShotgunT2PumpShotgun" quality="2,5" />
+        <item name="gunRifleT2LeverActionRifle" quality="2,5" />
+        <item name="gunMGT2TacticalAR" quality="2,5" />
+        <item name="gunBotT2JunkTurret" quality="2,5" />
+        <!--Ranged_Weapons_T3 -->
+        <item name="gunBowT3CompoundCrossbow" quality="2,5" />
+        <item name="gunHandgunT3SMG5" quality="2,5" />
+        <item name="gunMGT3M60" quality="2,5" />
+        <item name="gunHandgunT2Magnum44" quality="2,5" />
+        <item name="gunHandgunT3DesertVulture" quality="2,5" />
+        <item name="gunShotgunT3AutoShotgun" quality="2,5" />
+        <item name="gunRifleT3SniperRifle" quality="2,5" />
+        <item name="gunExplosivesT3RocketLauncher" quality="2,5" />
+        <item name="gunBotT3JunkDrone" quality="2,5" />
+        <!--T1_Melee_Mods -->
+        <item name="modMeleeSerratedBlade" />
+        <item name="modMeleeStructuralBrace" />
+        <item name="modMeleeWeightedHead" />
+        <item name="modMeleeGraveDigger" />
+        <item name="modMeleeWoodSplitter" />
+        <item name="modFuelTankSmall" />
+        <!--T2_Melee_Mods -->
+        <item name="modMeleeClubBurningShaft" />
+        <item name="modMeleeClubBarbedWire" />
+        <item name="modMeleeFortifyingGrip" />
+        <item name="modMeleeBunkerBuster" />
+        <item name="modFuelTankLarge" />
+        <!--T3_Melee_Mods -->
+        <item name="modMeleeClubMetalSpikes" />
+        <item name="modMeleeErgonomicGrip" />
+        <item name="modMeleeTemperedBlade" />
+        <item name="modMeleeIronBreaker" />
+        <item name="modGunMeleeRadRemover" />
+        <!--T1_Ranged_Mods-->
+        <item name="modGunChoke" />
+        <item name="modGunDuckbill" />
+        <item name="modGunBipod" />
+        <item name="modGunFlashlight" />
+        <item name="modGunForegrip" />
+        <item name="modGunMagazineExtender" />
+        <item name="modGunMeleeTheHunter" />
+        <item name="modGunMuzzleBrake" />
+        <item name="modGunScopeSmall" />
+        <item name="modShotgunSawedOffBarrel" />
+        <item name="modGunTriggerGroupSemi" />
+        <!--T2_Ranged_Mods -->
+        <item name="modGunBrassCatcher" />
+        <item name="modGunBarrelExtender" />
+        <item name="modGunCrippleEm" />
+        <item name="modGunLaserSight" />
+        <item name="modGunReflexSight" />
+        <item name="modGunRetractingStock" />
+        <item name="modGunScopeMedium" />
+        <item name="modGunSoundSuppressorSilencer" />
+        <item name="modGunTriggerGroupBurst3" />
+        <!--T3_Ranged_Mods -->
+        <item name="modGunBowPolymerString" />
+        <item name="modGunScopeLarge" />
+        <item name="modGunTriggerGroupAutomatic" />
+        <!--T1_Armor_Mods -->
+        <item name="modArmorHelmetLight" />
+        <item name="modArmorInsulatedLiner" />
+        <item name="modArmorCoolingMesh" />
+        <item name="modArmorPlatingBasic" />
+        <item name="modArmorStoragePocket" />
+        <item name="modArmorImprovedFittings" />
+        <!--T2_Armor_Mods -->
+        <item name="modArmorWaterPurifier" />
+        <item name="modArmorImpactBracing" />
+        <item name="modArmorPlatingReinforced" />
+        <item name="modArmorMuffledConnectors" />
+        <item name="modArmorDoubleStoragePocket" />
+        <item name="modArmorCustomizedFittings" />
+        <!--T3_Armor_Mods -->
+        <item name="modArmorBandolier" />
+        <item name="modArmorTripleStoragePocket" />
+        <item name="modArmorAdvancedMuffledConnectors" />
+      </trader_items>
+    </trader_info>
+  </append>
+  <!--Add MagBow to Inventory-->
+  <append xpath="/traders/trader_item_groups/trader_item_group[@name='groupRangedAll']">
+    <item name="Magbow" quality="2,5" />
+  </append>
+  <!--Add Anti-Rad/Healing Beds to Inventory-->
+  <append xpath="/traders/trader_item_groups/trader_item_group[@name='rareMedicine']">
+    <item name="drugRadPills" />
+    <item name="HealinggurneyBed" />
+    <item name="HealinghospitalBed" />
+  </append>
+  <!--Add Katana to Inventory-->
+  <append xpath="/traders/trader_item_groups/trader_item_group[@name='groupMeleeAll']">
+    <item name="meleeKatanaSword" quality="2,5" />
+  </append>
+  <!--Add Brass Catcher to Inventory-->
+  <append xpath="//trader_item_group[@name='groupRangedMods']">
+    <item name="modGunBrassCatcher" />
+  </append>
+  <!--Add Titanium Weapons to Inventory-->
+  <append xpath="//trader_item_group[@name='groupMeleeAll']">
+    <item name="meleeWpnKnucklesT4TitaniumKnuckles" quality="2,5" />
+    <item name="meleeWpnSledgeT4TitaniumSledgehammer" quality="2,5" />
+    <item name="meleeWpnSpearT4TitaniumSpear" quality="2,5" />
+    <item name="meleeWpnClubT4TitaniumBaseballBat" quality="2,5" />
+  </append>
+  <!--Add Titanium/Tungsten Tools/Parts to Inventory-->
+  <append xpath="//trader_item_group[@name='rareTools']">
+    <item name="titaniumToolParts"></item>
+    <item name="tungstenToolParts"></item>
+    <item name="meleeToolAxeT3TitaniumAxe"></item>
+    <item name="meleeToolPickT3TitaniumPickaxe"></item>
+    <item name="meleeToolShovelT3TitaniumShovel"></item>
+    <item name="meleeToolAxeT4TungstenChainsaw"></item>
+    <item name="meleeToolPickT4TungstenAuger"></item>
+  </append>
+  <!--Add schematics to Inventory-->
+  <append xpath="//trader_item_group[@name='schematicsModsCommon']">
+    <item name="modGunBrassCatcherSchematic" />
+    <item name="HealinggurneyBedSchematic" />
+    <item name="resourceHiFlowNozzleSchematic" />
+  </append>
+  <append xpath="//trader_item_group[@name='rareBooks']">
+    <item name="resourceMineralInfuserSchematic" />
+    <item name="HealinghospitalBedSchematic" />
+    <item name="drugRadPillsSchematic" />
+  </append>
+</configs>

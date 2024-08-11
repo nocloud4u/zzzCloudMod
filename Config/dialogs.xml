@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Player reset quest-->
+  <insertafter xpath="/dialogs/dialog[@id='trader']/statement[@id='start']/response_entry[@id='specialjobshave']">
+    <response_entry id="resetquests" />
+  </insertafter>
+</configs>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Workstations-->
+  <append xpath="/xui/ruleset">
+    <window_group name="workstation_furnace" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsForge" />
+      <window name="windowFuel" />
+      <window name="windowFurnaceInput" />
+      <window name="windowOutputForge" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_tableSaw" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="PirateBayPC" controller="XUiC_TraderWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowTrader" />
+      <window name="windowNonPagingHeader" />
+      <window name="serviceInfoPanel" />
+    </window_group>
+    <window_group name="workstation_IceMachine" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_WaterPurifier" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsWaterPurifier" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingModernStove" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingOldStove" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingWallOvenWhite" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingWallOvenGrey" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingWallOvenBlack" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_workingWallOvenJaWoodlePurple" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+  </append>
+  <!--Remove campfire and forge windows-->
+  <remove xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_forge']" />
+  <remove xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_campfire']" />
+  <!--Add Campfire and forge windows with larger queues-->
+  <insertAfter xpath="/xui/ruleset[@name='default']/window_group[@name='character']">
+    <window_group name="workstation_campfire" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsCampfire" />
+      <window name="windowFuel" />
+      <window name="windowOutput" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+    <window_group name="workstation_forge" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+      <window name="windowCraftingList" />
+      <window name="craftingInfoPanel" />
+      <window name="windowCraftingQueue" />
+      <window name="windowToolsForge" />
+      <window name="windowFuel" />
+      <window name="windowForgeInput" />
+      <window name="windowOutputForge" />
+      <window name="windowNonPagingHeader" />
+    </window_group>
+  </insertAfter>
+  <!--Adjust scale here for 4k-->
+  <set xpath="/xui/ruleset[@name='default']/@scale">1.255<!--Default[1.255]--></set>
+  <set xpath="/xui/ruleset[@name='default']/@stackpanel_scale">1.05<!--Default[1.05]--></set>
+</configs>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <append xpath="/materials">
+    <material id="MresourceCopperFragment">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="copper" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="Mcopper">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="copper" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="300" />
+      <property name="Mass" type="int" value="20" />
+      <property name="MaxDamage" value="600" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="MresourceZincFragment">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="zinc" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="Mzinc">
+      <property name="damage_category" value="stone" />
+      <property name="surface_category" value="stone" />
+      <property name="forge_category" value="zinc" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="300" />
+      <property name="Mass" type="int" value="20" />
+      <property name="MaxDamage" value="600" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="MreinforcedSteel">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="iron" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="300" />
+      <property name="Mass" type="int" value="20" />
+      <property name="explosionresistance" value="1.75" />
+      <property name="MaxDamage" value="10000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MreinforcedSteel_shapes">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="iron" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="300" />
+      <property name="Mass" type="int" value="20" />
+      <property name="explosionresistance" value="2" />
+      <property name="MaxDamage" value="20000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MresourceTitaniumFragment">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="titanium" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="Mtitanium">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="titanium" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="400" />
+      <property name="Mass" type="int" value="10" />
+      <property name="explosionresistance" value="3" />
+      <property name="MaxDamage" value="20000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="Mtitanium_shapes">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="titanium" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="400" />
+      <property name="Mass" type="int" value="10" />
+      <property name="explosionresistance" value="2.5" />
+      <property name="MaxDamage" value="40000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MresourceTungstenFragment">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="tungsten" />
+      <property name="Experience" value="2" />
+    </material>
+    <material id="Mtungsten">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="tungsten" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="500" />
+      <property name="Mass" type="int" value="5" />
+      <property name="explosionresistance" value="3" />
+      <property name="MaxDamage" value="40000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="Mtungsten_shapes">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="tungsten" />
+      <property name="Hardness" type="float" value="1" />
+      <property name="stepsound" value="metal" />
+      <property name="stability_glue" value="500" />
+      <property name="Mass" type="int" value="5" />
+      <property name="explosionresistance" value="3" />
+      <property name="MaxDamage" value="60000" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MmeleeWpnClubT4TitaniumBaseballBatParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="meleeWpnClubT4TitaniumBaseballBatParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MmeleeWpnSpearT4TitaniumSpearParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="meleeWpnSpearT4TitaniumSpearParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MmeleeWpnSledgeT4TitaniumSledgehammerParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="meleeWpnSledgeT4TitaniumSledgehammerParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MmeleeWpnKnucklesT4TitaniumKnucklesParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="meleeWpnKnucklesT4TitaniumKnucklesParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MtitaniumToolParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="titaniumToolParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MtungstenToolParts">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="tungstenToolParts" />
+      <property name="Experience" value="6" />
+    </material>
+    <material id="MarmorPower">
+      <property name="damage_category" value="metal" />
+      <property name="surface_category" value="metal" />
+      <property name="forge_category" value="armorParts" />
+      <property name="Experience" value="8" />
+    </material>
+  </append>
+</configs>

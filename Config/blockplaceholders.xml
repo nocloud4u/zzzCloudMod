@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Loot Table Saw-->
+  <append xpath="blockplaceholders">
+    <placeholder name="tableSaw">
+      <block name="BrokentableSaw" prob="1" />
+    </placeholder>
+  </append>
+  <!--Replace all broken vending machines with a lootable version-->
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachine2RandomLootHelper']/block[@name='cntVendingMachine2Broken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachine2RandomLootHelper']/block[@name='cntVendingMachineEnergyBroken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachine2RandomLootHelper']/block[@name='cntVendingMachineWaterBroken']"></remove>
+  <append xpath="blockplaceholders/placeholder[@name='cntVendingMachine2RandomLootHelper']">
+    <block name="BrokenVendingMachine" prob=".20" />
+  </append>
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachineSnacksRandomLootHelper']/block[@name='cntVendingMachineSnacksEmpty']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachineSnacksRandomLootHelper']/block[@name='cntVendingMachineSnacksFullBroken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntVendingMachineSnacksRandomLootHelper']/block[@name='cntVendingMachineSnacksEmptyBroken']"></remove>
+  <append xpath="blockplaceholders/placeholder[@name='cntVendingMachineSnacksRandomLootHelper']">
+    <block name="BrokenVendingMachine" prob=".15" />
+  </append>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachine2Broken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachineEnergyBroken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachineWaterBroken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachineSnacksEmpty']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachineSnacksFullBroken']"></remove>
+  <remove xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']/block[@name='cntVendingMachineSnacksEmptyBroken']"></remove>
+  <append xpath="blockplaceholders/placeholder[@name='cntAllVendingMachinesRandomLootHelper']">
+    <block name="BrokenVendingMachine" prob=".1" />
+  </append>
+</configs>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <set xpath="/rwgmixer/township[@name='countrytown']/property[@name='biomes']/@value">forest,burntforest,desert,snow</set>
+  <set xpath="/rwgmixer/township[@name='town']/property[@name='biomes']/@value">forest,burntforest,desert,snow</set>
+  <set xpath="/rwgmixer/township[@name='city']/property[@name='biomes']/@value">forest,burntforest,desert,snow</set>
+  <set xpath="/rwgmixer/township[@name='citybig']/property[@name='biomes']/@value">forest,burntforest,desert,snow,wasteland</set>
+  <set xpath="/rwgmixer/prefab_spawn_adjust[@partial_name='trader_rekt']/@biomeTags">burntforest</set>
+  <set xpath="/rwgmixer/prefab_spawn_adjust[@partial_name='trader_jen']/@biomeTags">forest</set>
+</config>

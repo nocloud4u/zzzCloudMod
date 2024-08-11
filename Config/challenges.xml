@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <!--*****Begin Altered Start*****-->
+  <!--Editing Basics Challenge Group To Just Click Redeem-->
+  <!--*************************************************-->
+  <!--Remove Gather Resources Objectives-->
+  <remove xpath="/challenges/challenge[@name='gatherResources']/objective[@item='resourceYuccaFibers']"></remove>
+  <remove xpath="/challenges/challenge[@name='gatherResources']/objective[@item='resourceWood']"></remove>
+  <remove xpath="/challenges/challenge[@name='gatherResources']/objective[@item='resourceRockSmall']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='gatherResources']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='gatherResources']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Craft Stone Axe Objective-->
+  <remove xpath="/challenges/challenge[@name='craftStoneAxe']/objective[@item='meleeToolRepairT0StoneAxe']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='craftStoneAxe']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='craftStoneAxe']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Gather Resources Stone Axe Objectives-->
+  <remove xpath="/challenges/challenge[@name='gatherResourcesStoneAxe']/objective[@item='resourceWood']"></remove>
+  <remove xpath="/challenges/challenge[@name='gatherResourcesStoneAxe']/objective[@item='resourceRockSmall']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='gatherResourcesStoneAxe']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='gatherResourcesStoneAxe']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Craft Clothes Objective-->
+  <remove xpath="/challenges/challenge[@name='craftClothes']/objective[@item='armorPrimitiveOutfit']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='craftClothes']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='craftClothes']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Wear Clothes Objective-->
+  <remove xpath="/challenges/challenge[@name='wearClothes']/objective[@item='armorPrimitiveOutfit']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='wearClothes']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='wearClothes']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Craft Wood Club Objective-->
+  <remove xpath="/challenges/challenge[@name='craftWoodClub']/objective[@item='meleeWpnClubT0WoodenClub']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='craftWoodClub']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='craftWoodClub']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Craft Bow Objective-->
+  <remove xpath="/challenges/challenge[@name='craftBow']/objective[@item='gunBowT0PrimitiveBow']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='craftBow']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='craftBow']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--Remove Craft Arrows Objective-->
+  <remove xpath="/challenges/challenge[@name='craftArrows']/objective[@item='ammoArrowStone']"></remove>
+  <!--Set Hint To Tell Player Just Click Redeem-->
+  <set xpath="/challenges/challenge[@name='craftArrows']/@hint">challengeCloudMod</set>
+  <!--Set Objective To Just Click Redeem-->
+  <append xpath="/challenges/challenge[@name='craftArrows']">
+    <objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true" />
+  </append>
+  <!--*************************************************-->
+  <!--*****End Altered Start*****-->
+  <!--Gather Iron Fragment Instead Of Scrap Iron-->
+  <set xpath="/challenges/challenge[@name='gathererIron']/objective[@type='Harvest']/@item">resourceIronFragment</set>
+  <!--Gather Wood Log Instead of Wood-->
+  <set xpath="/challenges/challenge[@name='gathererWood']/objective[@type='Harvest']/@item">woodLogPillar100</set>
+  <set xpath="/challenges/challenge[@name='gathererWood']/objective[@type='Harvest']/@count">500</set>
+</config>

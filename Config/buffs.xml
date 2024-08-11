@@ -1,0 +1,1086 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Buffs-->
+  <append xpath="/buffs">
+    <buff name="buffCloudsHealing" name_key="buffCloudsHealingName" description_key="buffCloudsHealingDesc" tooltip_key="ToolTipCloudsHealing" icon="ui_game_symbol_add" icon_color="0,220,0">
+      <stack_type value="ignore" />
+      <display_value_key value="DisplayValueCloudsHealing" />
+      <display_value value="+" />
+      <duration value="3" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="add" value="1"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Stamina" operation="add" value="1" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffUpdate" buff="buffPerkAbilityUpdate" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffRemove" buff="buffPerkAbilityUpdate" />
+      </effect_group>
+    </buff>
+    <buff name="buffCloudsHealing1" name_key="buffCloudsHealing1Name" description_key="buffCloudsHealing1Desc" tooltip_key="ToolTipCloudsHealing1" icon="ui_game_symbol_add" icon_color="0,220,0">
+      <stack_type value="ignore" />
+      <display_value_key value="DisplayValueCloudsHealing1" />
+      <display_value value="+" />
+      <duration value="3" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="add" value="5"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Stamina" operation="add" value="5" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Water" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Food" operation="add" value="1" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffUpdate" buff="buffPerkAbilityUpdate" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffRemove" buff="buffPerkAbilityUpdate" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="buffDrugPainkillers" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$armHurtCounter" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$legHurtCounter" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="healAbrasionMult" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$abrasionHealthMaxBlockage" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$abrasionCounter" />
+      </effect_group>
+    </buff>
+    <buff name="buffCloudsHealing2" name_key="buffCloudsHealing2Name" description_key="buffCloudsHealing2Desc" tooltip_key="ToolTipCloudsHealing2" icon="ui_game_symbol_add" icon_color="0,220,0">
+      <stack_type value="ignore" />
+      <display_value_key value="DisplayValueCloudsHealing2" />
+      <display_value value="+" />
+      <duration value="3" />
+      <effect_group>
+        <triggered_effect action="RemoveAllNegativeBuffs" trigger="onSelfBuffUpdate" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="add" value="10"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Stamina" operation="add" value="10" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Water" operation="add" value="5" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Food" operation="add" value="5" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffUpdate" buff="buffPerkAbilityUpdate" />
+        <triggered_effect action="AddBuff" trigger="onSelfBuffRemove" buff="buffPerkAbilityUpdate" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="buffDrugPainkillers" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="buffInfectionAddCure" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$armHurtCounter" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$legHurtCounter" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="healAbrasionMult" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$abrasionHealthMaxBlockage" />
+        <triggered_effect value="0" operation="set" action="ModifyCVar" trigger="onSelfBuffStart" cvar="$abrasionCounter" />
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="7500">
+          <requirement name="CVarCompare" value="7500" operation="GTE" cvar="_expdeficit" />
+        </triggered_effect>
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="3000">
+          <requirement name="CVarCompare" value="3000" operation="GTE" cvar="_expdeficit" />
+        </triggered_effect>
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="1000">
+          <requirement name="CVarCompare" value="1000" operation="GTE" cvar="_expdeficit" />
+        </triggered_effect>
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="250">
+          <requirement name="CVarCompare" value="250" operation="GTE" cvar="_expdeficit" />
+        </triggered_effect>
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="50">
+          <requirement name="CVarCompare" value="50" operation="GTE" cvar="_expdeficit" />
+        </triggered_effect>
+        <triggered_effect action="GiveExp" trigger="onSelfBuffUpdate" exp="10">
+          <requirement name="CVarCompare" value="0" operation="GT" cvar="_expdeficit" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+    <buff name="ScubaMask" hidden="false" icon="ui_game_symbol_oxygen" remove_on_death="false" name_key="buffScubaMaskName" description_key="buffScubaMaskDesc" tooltip_key="buffScubaMaskTooltip" icon_color="0,255,255">
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffDrowning01" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffDrowning02" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffDrowning03" />
+      </effect_group>
+    </buff>
+    <buff name="buffSmelly" hidden="false" name_key="buffSmellyName" description_key="buffSmellyDesc" icon="ui_game_symbol_smell" icon_color="219,124,29" showonhud="true">
+      <stack_type value="replace" />
+      <duration value="10" />
+      <effect_group name="MoreVisibility">
+        <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="1" />
+        <passive_effect name="LightMultiplier" operation="perc_add" value=".67">
+          <requirement name="CVarCompare" cvar="_lightlevel" operation="LTE" value="65" />
+        </passive_effect>
+        <passive_effect name="NoiseMultiplier" operation="perc_add" value="3" />
+        <passive_effect name="EnemySearchDuration" operation="perc_add" value="3" />
+      </effect_group>
+      <effect_group name="LessVisibility">
+        <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="GTE" value="2" />
+        <passive_effect name="LightMultiplier" operation="perc_add" value=".33">
+          <requirement name="CVarCompare" cvar="_lightlevel" operation="LTE" value="65" />
+        </passive_effect>
+        <passive_effect name="NoiseMultiplier" operation="perc_add" value="1" />
+        <passive_effect name="EnemySearchDuration" operation="perc_add" value="1" />
+      </effect_group>
+      <effect_group name="CallGameEvent">
+        <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="4" />
+        <triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="SmellyHorde">
+          <requirement name="RandomRoll" seed_type="Random" min_max="0,200" operation="LTE" value="3" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+    <buff name="buffWasteland" name_key="buffWastelandName" description_key="buffWastelandDesc" tooltip_key="buffWastelandTT" icon="ui_game_symbol_radiation" icon_color="255,0,0" icon_blink="true">
+      <damage_type value="radiation" />
+      <stack_type value="ignore" />
+      <duration value="5000" />
+      <update_rate value="1" />
+      <effect_group>
+        <requirement name="!HasBuff" buff="buffRadSuit" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="RadiationSignal" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="RadiationSignal" operation="set" value="0">
+          <requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="2" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="RadiationSignal" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="a_radiated_strong_lp" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="1" fade=".2" effect_name="Hot">
+          <requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="1" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0" fade=".2" effect_name="Hot">
+          <requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Hot" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffWasteland">
+          <requirement name="!InBiome" biome="8" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Radiation" intensity=".5" fade="2" />
+        <triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="0" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="2" />
+      </effect_group>
+    </buff>
+    <buff name="buffRadSuit" name_key="buffRadSuitName" description_key="buffRadSuitDesc" tooltip_key="buffRadSuitTT" icon="ui_game_symbol_radiation" icon_color="4,99,7">
+      <stack_type value="ignore" />
+      <effect_group>
+        <passive_effect name="BuffResistance" operation="base_add" value="1" tags="buffWasteland" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffWasteland"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="2" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Hot" intensity="0" fade="1"></triggered_effect>
+      </effect_group>
+    </buff>
+    <buff name="buffRadPills" name_key="buffRadPillsName" description_key="buffRadPillsDesc" tooltip_key="buffRadPillsTT" icon="ui_game_symbol_radiation" icon_color="4,99,7">
+      <stack_type value="replace" />
+      <duration value="0" />
+      <display_value value=".buffRadPillsDisplay" />
+      <display_value_format value="time" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffRadPillsDisplay" operation="set" value="@$buffRadPillsDuration" />
+        <passive_effect name="BuffResistance" operation="base_add" value="1" tags="buffWasteland" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffWasteland"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="2" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Hot" intensity="0" fade="1"></triggered_effect>
+      </effect_group>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffRadPills">
+          <requirement name="CVarCompare" cvar="$buffRadPillsDuration" operation="LTE" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar="$buffRadPillsDuration,.buffRadPillsDisplay" />
+      </effect_group>
+    </buff>
+    <buff name="buffRadResistMask" hidden="true"></buff>
+    <buff name="buffRadResistChest" hidden="true"></buff>
+    <buff name="buffRadResistGloves" hidden="true"></buff>
+    <buff name="buffRadResistBoots" hidden="true"></buff>
+    <buff name="buffPowerArmorMask" hidden="true"></buff>
+    <buff name="buffPowerArmorChest" hidden="true"></buff>
+    <buff name="buffPowerArmorGloves" hidden="true"></buff>
+    <buff name="buffPowerArmorBoots" hidden="true"></buff>
+    <buff name="buffBrassCatch" hidden="true" remove_on_death="true">
+      <stack_type value="replace" />
+      <duration value="0.01" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="CasingCatch" />
+      </effect_group>
+    </buff>
+    <buff name="buffPowerArmor" name_key="buffPowerArmor" description_key="buffPowerArmorDesc" tooltip_key="buffPowerArmorTT" icon="ui_game_symbol_radiation" icon_color="4,200,7">
+      <stack_type value="ignore" />
+      <effect_group>
+        <requirement name="HoldingItemHasTags" tags="meleeWeapon" />
+        <passive_effect name="EntityDamage" operation="perc_add" value=".1,.2,.3,.4,.5,.6" tier="1,2,3,4,5,6" />
+      </effect_group>
+      <effect_group>
+        <passive_effect name="RunSpeed" operation="perc_add" value=".25" />
+        <passive_effect name="HyperthermalResist" operation="base_add" value="50" />
+        <passive_effect name="HypothermalResist" operation="base_add" value="50" />
+        <passive_effect name="BuffResistance" operation="base_set" value="100" tags="buffInfectionCatch,buffInfection01Main,buffInjuryBleeding,buffArmorShredding,buffInjuryAbrasion,buffInjuryAbrasionTreated,buffLegSprained,buffLegBroken,buffLegSplinted,buffLegCast,buffArmSprained" />
+        <passive_effect name="BuffResistance" operation="base_set" value="100" tags="buffArmBroken,buffInjuryStunned01,buffInjuryStunned02,buffInjuryStunned03,buffInjuryCrippled01,buffInjuryKnockdown01,buffInjuryKnockdown01,buffInjuryUnconscious,buffLaceration,buffFatigued" />
+        <passive_effect name="BuffResistance" operation="base_set" value="100" tags="buffInjuryConcussion,buffShocked,buffBurningElement,buffBurningEnvironment,buffBurningFlamingArrow,buffBurningMolotov,buffBurning" />
+        <passive_effect name="BuffResistance" operation="base_add" value="100" tags="buffInjuryBleeding,buffInjuryStunned00,buffInjuryStunned01,buffInjuryStunned01Shotgun,buffInjuryStunned02,buffInjuryStunned02Shotgun,buffInjuryStunned03,buffInjuryStunned03Shotgun,buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire" />
+        <passive_effect name="BuffResistance" operation="base_set" value="100" tags="buffLegSplinted,buffLegCast,buffArmSprained,buffArmBroken,buffArmSplinted,buffArmCast" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$raiderCritNaturalHealing" operation="set" value=".5" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$raiderCritNaturalHealing" operation="set" value="0" />
+      </effect_group>
+      <effect_group>
+        <passive_effect name="BuffResistance" operation="base_add" value="1" tags="buffWasteland" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffWasteland"></triggered_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="2" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Hot" intensity="0" fade="1"></triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <!--Power Armor Fall Damage-->
+  <append xpath="/buffs/buff[@name='buffPlayerFallingDamage']/effect_group[5]">
+    <requirement name="!HasBuff" buff="buffPowerArmor"></requirement>
+  </append>
+  <append xpath="/buffs/buff[@name='buffPlayerFallingDamage']/effect_group[10]/triggered_effect[3]">
+    <requirement name="!HasBuff" buff="buffPowerArmor"></requirement>
+  </append>
+  <append xpath="/buffs/buff[@name='buffPlayerFallingDamage']/effect_group[12]/triggered_effect">
+    <requirement name="!HasBuff" buff="buffPowerArmor"></requirement>
+  </append>
+  <append xpath="/buffs/buff[@name='buffPlayerFallingDamage']/effect_group[12]/triggered_effect[2]">
+    <requirement name="!HasBuff" buff="buffPowerArmor"></requirement>
+  </append>
+  <append xpath="/buffs/buff[@name='buffLegSprainedFallTrigger']/effect_group">
+    <requirement name="!HasBuff" buff="buffPowerArmor"></requirement>
+  </append>
+  <!--Add buffs to status check-->
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']">
+    <effect_group name="Smelly">
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffSmelly">
+        <requirement name="PlayerItemCount" item_name="foodRawMeat" operation="GTE" value="1" />
+        <requirement name="NotHasBuff" buff="buffSmelly" />
+        <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffSmelly">
+        <requirement name="PlayerItemCount" item_name="resourceAnimalFat" operation="GTE" value="1" />
+        <requirement name="NotHasBuff" buff="buffSmelly" />
+        <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7" />
+      </triggered_effect>
+    </effect_group>
+    <!--Raw Meat and Animal Fat Attract Animals-->
+  </append>
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group/triggered_effect[@buff='buffDrowning01']">
+    <requirement name="!HasBuff" buff="ScubaMask" />
+    <!--Scuba Mask Buff-->
+  </append>
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group">
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffRadPills">
+      <requirement name="HasBuff" buff="god" />
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffWasteland">
+      <requirement name="!HasBuff" buff="god" />
+      <requirement name="!HasBuff" buff="buffRadSuit" />
+      <requirement name="InBiome" biome="8" />
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffRadSuit">
+      <requirement name="HasBuff" buff="buffRadResistMask" />
+      <requirement name="HasBuff" buff="buffRadResistChest" />
+      <requirement name="HasBuff" buff="buffRadResistGloves" />
+      <requirement name="HasBuff" buff="buffRadResistBoots" />
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffPowerArmor">
+      <requirement name="HasBuff" buff="buffPowerArmorMask" />
+      <requirement name="HasBuff" buff="buffPowerArmorChest" />
+      <requirement name="HasBuff" buff="buffPowerArmorGloves" />
+      <requirement name="HasBuff" buff="buffPowerArmorBoots" />
+    </triggered_effect>
+    <!--Radiation and Rad Suit-->
+  </append>
+  <!--Remove Darkness While Crouching-->
+  <remove xpath="/buffs/buff[@name='buffCrouching']" />
+  <append xpath="/buffs">
+    <buff name="buffCrouching" hidden="true">
+      <stack_type value="ignore" />
+      <effect_group>
+        <triggered_effect trigger="onSelfStand" action="RemoveBuff" buff="buffCrouching" />
+        <triggered_effect trigger="onSelfEnteredGame" action="RemoveBuff" buff="buffCrouching" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffCrouching">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <!--Begin Khaine's Return of Behemoth Code-->
+  <remove xpath="/buffs/buff[starts-with(@name, 'buffIsOnFire')]/effect_group[starts-with(@name, 'run particles')]" />
+  <insertAfter xpath="/buffs/buff[starts-with(@name, 'buffIsOnFire')]/effect_group[3]">
+    <effect_group name="run particles, cleanup">
+      <requirement name="!EntityTagCompare" tags="behemoth" />
+      <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffIsOnFireDisplay" operation="set" value="0" />
+      <triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_onFire" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true" />
+      <triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_onFire" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true" />
+      <triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_onFire" />
+      <triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_onFire" />
+    </effect_group>
+    <effect_group name="run particles for customs, cleanup">
+      <requirement name="EntityTagCompare" tags="behemoth" />
+      <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffIsOnFireDisplay" operation="set" value="0" />
+      <triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="#@modfolder:Assets/p_onFire2.unity3d?p_onFire2" local_offset="0,-.2,0" parent_transform="Hips" />
+      <triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="#@modfolder:Assets/p_onFire2.unity3d?p_onFire2" local_offset="0,-.2,0" parent_transform="Hips" />
+      <triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_onFire2" />
+      <triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_onFire2" />
+    </effect_group>
+  </insertAfter>
+  <!--End Khaine's Return of Behemoth Code-->
+  <!--Begin Learn-By-Use Code-->
+  <!-- initialise all Learn By Use config variables-->
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']">
+    <effect_group>
+      <!-- The learn by use levelling curve (the amount of xp needed per level) is a basic compound interest curve
+				There are 3 variables for compound interest: the initial deposit (lbu_DefaultInitialIncrement), the interest per year (per lbu level),
+						the number of years (50 levels - kindof hard set, requires editing in the individual perk code below). 
+				There are websites that can show compound interest curves to show values per level (year) and help visualise
+				changes you might make -->
+      <!--change the values below to change the levelling curve for the learn-By-Use algorithm.
+				There is an option for a cap on the total amount of xp required per level -->
+      <!-- lbu_DefaultInitialIncrement: the initial increment value, xp required for 1st levelup (deposit amount)-->
+      <!-- Changes to lbu_DefaultInitialIncrement only effect new games as its an initial value -->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultInitialIncrement" operation="set" value="500" />
+      <!--default: 500-->
+      <!-- lbu_DefaultIncrementIncrease: the percent increase added to lbu_DefaultInitialIncrement each level (interest per year)-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultIncrementIncrease" operation="set" value="1.045" />
+      <!--default: 1.045 (4.5%)-->
+      <!-- lbu_DefaultLevelCap: the level cap to stop increasing the xp needed per level (stop accummulating interest after X years)-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultLevelCap" operation="set" value="46" />
+      <!--default: 46 -->
+      <!-- lbu_DefaultGiveSkillPoint: whenever a lbu perk reaches max progress (50 points):
+											1 = give free Skill Point 
+											0 = dont give Skill Point 
+											This is used in buff.xml:buffLBU_GiveProgressSkillPoint -->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultGiveSkillPoint" operation="set" value="1" />
+      <!--default: 1 -->
+      <!--NOTES on the level cap of 50-->
+      <!--
+			Learn By Use increases up to 1/2 the Perk effects - the other half get increased by putting points into the corresponding 
+			Perk as normal. Because of this there is a fixed limit on how much any effect can be increased - see ** below.
+			
+			The max perk level of 50 is due to some Perks using range increments that dont scale well up to 100. It can be 
+			more thought of as, instead of 50 levels, its actually 100 levels but the code only counts every 2nd level. 
+			
+			For Example: 
+			In the code below, EntityDamage for spears is being % increased from 0.01 to 0.25 over levels 1 to 50.
+			(**The max increase value of 0.25 is fixed)
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+			The damage is being increased by 0.005 every level.
+			
+			As the % increase of 0.25 is the max we can use, at 100 levels: 
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,100" />
+			the damage increase would be 0.0025 every level. 				
+			
+			The 7DTD code (the engine that reads the xml) only appears to use 3 decimal places, so a value of 0.0025 
+			would most likely introduce rounding or truncating errors at 4 decimal places. 
+			
+			======
+			
+			The actual max-level value of the '50' number is hard-coded in the code because its used in expressions that cant use 
+			a variable. (e.g. as part of a string)
+			For example:
+			In the code below, the number 50 at the end for the level (level="1,50") has to be a value, it cant be a variable:
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+			The following doesn't work:
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,@SOMEVARIABLE" /> 
+				
+			So the max-level is written out wherever it is used. To change max-level you will need to edit every reference to '50' 
+			in progression.xml. 
+			-->
+      <!--DONT EDIT BELOW THIS LINE: all increment vars are intialised here using the above config values-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DeadEye_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_DeadEye_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Demolition_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Demolition_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_SpearMaster_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_SpearMaster_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Salvage_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Salvage_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Boomstick_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Boomstick_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_PummelPete_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_PummelPete_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--pummel pete also has a stamina bonus increase to intialise-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_PP_StamIncrement" operation="set" value="0.3">
+        <requirement name="CVarCompare" cvar="lbu_PP_StamIncrement" operation="LT" value="0.3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_SkullCrusher_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_SkullCrusher_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--skull scrusher also has a stamina bonus increase to intialise-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_SC_StamIncrement" operation="set" value="0.3">
+        <requirement name="CVarCompare" cvar="lbu_SC_StamIncrement" operation="LT" value="0.3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Miner69er_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Miner69er_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Brawler_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Brawler_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--brawler also has a stamina bonus increase to intialise-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Brawler_StamIncrement" operation="set" value="0.3">
+        <requirement name="CVarCompare" cvar="lbu_Brawler_StamIncrement" operation="LT" value="0.3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_MachineGunner_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_MachineGunner_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Archery_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Archery_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Gunslinger_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Gunslinger_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeepCuts_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_DeepCuts_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--deep cuts also has a stamina bonus increase to intialise-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DCuts_StamIncrement" operation="set" value="0.3">
+        <requirement name="CVarCompare" cvar="lbu_DCuts_StamIncrement" operation="LT" value="0.3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_HiddenStrike_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_HiddenStrike_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Electrocutioner_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Electrocutioner_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--electrocutioner also has a stamina bonus increase to intialise-->
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Elec_StamIncrement" operation="set" value="0.3">
+        <requirement name="CVarCompare" cvar="lbu_Elec_StamIncrement" operation="LT" value="0.3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Robotics_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+        <requirement name="CVarCompare" cvar="lbu_Robotics_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement" />
+      </triggered_effect>
+      <!--END perk increment vars intialisation-->
+    </effect_group>
+  </append>
+  <!-- end initialise all Learn By Use config variables-->
+  <append xpath="/buffs">
+    <!--this buff gives out an extra Skill Point if  LearnByUse:lbu_DefaultGiveSkillPoint > 0.
+			If LearnByUse:lbu_DefaultGiveSkillPoint == 0) just play a sound and display 'level max' msg.
+			lbu_DefaultGiveSkillPoint is set in progression.xml and 
+			this buff is called from each Perk when the Perk Level reaches max-->
+    <buff name="buffLBU_GiveProgressSkillPoint" hidden="true">
+      <stack_type value="ignore" />
+      <duration value="0" />
+      <effect_group>
+        <!--if (lbu_DefaultGiveSkillPoint >=0) give free Skill Point-->
+        <triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="lbu_action_give_points">
+          <requirement name="CVarCompare" cvar="lbu_DefaultGiveSkillPoint" operation="GTE" value="1" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group>
+        <!--if (lbu_DefaultGiveSkillPoint ==0) display msg and play sound without skill point-->
+        <triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="lbu_action_max_level">
+          <requirement name="CVarCompare" cvar="lbu_DefaultGiveSkillPoint" operation="EQ" value="0" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group>
+        <!--remove the buff-->
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffLBU_GiveProgressSkillPoint" />
+      </effect_group>
+    </buff>
+    <!--this buff verifies that the players ProgressionLevel is the same as the backup progress level (for each Learn By Use Perk)
+			If a player drinks the forgetin Elixer it resets all Perks. A backup is kept to use this buff to restore after 
+			elixer consumption. To be safe the code verifies they are exactly the same-->
+    <!--Cant read a variable's value into SetProgressionLevel-<lbu_perk_name> (its a 'level' not a 'value') and also
+			Cant write ProgressionLevel-<lbu_perk_name> to a variable.
+			Because of this a buff is used so that if any ProgressionLevels are different than the backup copy;
+			The buff will iterate over the value until they are equal-->
+    <buff name="buffVerifyLBU_ProgressLevels" hidden="true">
+      <stack_type value="ignore" />
+      <duration value="0" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="LEARN BY USE: Verifying progress levels." />
+      </effect_group>
+      <!-- INTELLECT -->
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Robotics" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Robotics" operation="LT" value="@lbu_Robotics_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Robotics_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Robotics" operation="GT" value="@lbu_Robotics_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Electrocutioner" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="LT" value="@lbu_Electrocutioner_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Electrocutioner_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="GT" value="@lbu_Electrocutioner_Lvl" />
+        </triggered_effect>
+      </effect_group>
+      <!--AGILITY-->
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_HiddenStrike" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LT" value="@lbu_HiddenStrike_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_HiddenStrike_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="GT" value="@lbu_HiddenStrike_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_DeepCuts" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="LT" value="@lbu_DeepCuts_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_DeepCuts_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="GT" value="@lbu_DeepCuts_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Gunslinger" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="LT" value="@lbu_Gunslinger_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Gunslinger_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="GT" value="@lbu_Gunslinger_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Archery" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="LT" value="@lbu_Archery_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Archery_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="GT" value="@lbu_Archery_Lvl" />
+        </triggered_effect>
+      </effect_group>
+      <!--FORTITUDE-->
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_MachineGunner" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="LT" value="@lbu_MachineGunner_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_MachineGunner_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="GT" value="@lbu_MachineGunner_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Brawler" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="LT" value="@lbu_Brawler_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Brawler_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="GT" value="@lbu_Brawler_Lvl" />
+        </triggered_effect>
+      </effect_group>
+      <!--STRENGTH -->
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Miner69er" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="LT" value="@lbu_Miner69er_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Miner69er_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="GT" value="@lbu_Miner69er_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_SkullCrusher" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="LT" value="@lbu_SkullCrusher_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_SkullCrusher_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="GT" value="@lbu_SkullCrusher_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_PummelPete" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="LT" value="@lbu_PummelPete_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_PummelPete_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="GT" value="@lbu_PummelPete_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Boomstick" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="LT" value="@lbu_Boomstick_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Boomstick_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="GT" value="@lbu_Boomstick_Lvl" />
+        </triggered_effect>
+      </effect_group>
+      <!--PERCEPTION-->
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Salvage" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="LT" value="@lbu_Salvage_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Salvage_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="GT" value="@lbu_Salvage_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_SpearMaster" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="LT" value="@lbu_SpearMaster_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_SpearMaster_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="GT" value="@lbu_SpearMaster_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_Demolition" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Demolition" operation="LT" value="@lbu_Demolition_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_Demolition_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_Demolition" operation="GT" value="@lbu_Demolition_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_DeadEye" level="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="LT" value="@lbu_DeadEye_Lvl" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_DeadEye_Lvl" operation="add" value="1">
+          <requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="GT" value="@lbu_DeadEye_Lvl" />
+        </triggered_effect>
+      </effect_group>
+      <!--if all is equal - remove buff-->
+      <effect_group>
+        <requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="EQ" value="@lbu_DeadEye_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Demolition" operation="EQ" value="@lbu_Demolition_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="EQ" value="@lbu_SpearMaster_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="EQ" value="@lbu_Salvage_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="EQ" value="@lbu_Boomstick_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="EQ" value="@lbu_PummelPete_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="EQ" value="@lbu_SkullCrusher_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="EQ" value="@lbu_Miner69er_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="EQ" value="@lbu_Brawler_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="EQ" value="@lbu_MachineGunner_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="EQ" value="@lbu_Archery_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="EQ" value="@lbu_Gunslinger_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="EQ" value="@lbu_DeepCuts_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="EQ" value="@lbu_HiddenStrike_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="EQ" value="@lbu_Electrocutioner_Lvl" />
+        <requirement name="ProgressionLevel" progression_name="lbu_Robotics" operation="EQ" value="@lbu_Robotics_Lvl" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffVerifyLBU_ProgressLevels" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message="LEARN BY USE: Progress levels verified!" />
+      </effect_group>
+    </buff>
+    <!--this buff performs the effects for the Hidden Strike LBU Perk - see progressions.xml
+			The code is different from other Perks because Hidden Strike applies to more than one weapon/perk (e.g. sneak damage with any range weapon)
+		    -->
+    <buff name="buffHiddenStrikeAction" hidden="true">
+      <stack_type value="ignore" />
+      <duration value="0" />
+      <effect_group>
+        <!--apply any level xp gain for damage or kill triggers-->
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="add" value="14">
+          <requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="add" value="26" />
+      </effect_group>
+      <effect_group>
+        <!--Increase ProgressLevel if xp greater than value for next level-->
+        <requirement name="CVarCompare" cvar="lbu_HiddenStrike_XP" operation="GTE" value="@lbu_HiddenStrike_XPIncrement" />
+        <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LT" value="50" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease">
+          <!--taper off level xp increase at level 47 (xxx_XPIncrement about 4000). xxx_XPIncrement will grow to 4700  without the cap-->
+          <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LTE" value="@lbu_DefaultLevelCap" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="lbu_HiddenStrike" level="1" />
+        <!--Upadate BCK var in line with ProgressionLevel progress-->
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_Lvl" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Hidden Strike Skill Increased!" />
+        <!--if max level then give free Skill Point-->
+        <triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="lbu_action_give_points">
+          <requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="EQ" value="50" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHiddenStrikeAction" />
+      </effect_group>
+    </buff>
+  </append>
+  <!--End Learn-By-Use Code-->
+  <!--Start JayFusion The Tracker Code-->
+  <append xpath="/buffs">
+    <buff name="buffEnemyNearbyCheck" hidden="true" remove_on_death="false">
+      <stack_type value="ignore" />
+      <update_rate value=".5" />
+      <effect_group>
+        <triggered_effect trigger="onOtherEnteredRange" range="100" tags="player" action="RemoveBuff" buff="buffAllyNearby">
+          <requirement name="EntityTagCompare" target="other" tags="player" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffAllyNearby" target="selfAOE" target_tags="ally,party" range="100">
+          <requirement name="NotHasBuff" target="other" buff="buffEnemyNearby" />
+          <requirement name="NotHasBuff" target="self" buff="buffEnemyNearby" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="NotHasBuff" target="self" buff="buffPlayerIdle" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffEnemyNearby" target="selfAOE" target_tags="player,enemy" range="100" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffEnemyNearby" target="selfAOE" target_tags="ally,party" range="100" />
+      </effect_group>
+    </buff>
+    <buff name="buffTrackingCheck" hidden="true" remove_on_death="false">
+      <stack_type value="ignore" />
+      <update_rate value=".1" />
+      <effect_group>
+        <requirements>
+          <requirement name="!EntityHasMovementTag" target="self" tags="sprinting" />
+          <requirement name="!EntityHasMovementTag" target="self" tags="running" />
+          <requirement name="EntityHasMovementTag" target="self" tags="walking" />
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+          <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="GTE" value="5" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffPlayerIdle" target="self" />
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="EntityHasMovementTag" target="self" tags="idle" />
+          <requirement name="!EntityHasMovementTag" target="self" tags="running" />
+          <requirement name="!EntityHasMovementTag" target="self" tags="sprinting" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffPlayerIdle" target="self" />
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="EntityHasMovementTag" target="self" tags="sprinting" />
+          <requirement name="EntityHasMovementTag" target="self" tags="jumping" />
+          <requirement name="EntityHasMovementTag" target="self" tags="running" />
+          <requirement name="EntityHasMovementTag" target="self" tags="floating" />
+          <requirement name="EntityHasMovementTag" target="self" tags="swimming" />
+          <requirement name="EntityHasMovementTag" target="self" tags="driving" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerIdle" target="self" />
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="EntityHasMovementTag" target="self" tags="walking" />
+          <requirement name="EntityHasMovementTag" target="self" tags="running" />
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+          <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="5" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerIdle" target="self" />
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="EntityHasMovementTag" target="self" tags="walking" />
+          <requirement name="!EntityHasMovementTag" target="self" tags="running" />
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+          <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="4" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerIdle" target="self" />
+      </effect_group>
+    </buff>
+    <buff name="buffPlayerIdle" hidden="true" remove_on_death="true">
+      <duration value="1" />
+      <stack_type value="replace" />
+      <update_rate value=".1" />
+    </buff>
+    <buff name="buffAllyNearby" hidden="true" remove_on_death="true">
+      <duration value="1" />
+      <stack_type value="replace" />
+      <update_rate value=".1" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffEnemyNearby" target="selfAOE" target_tags="ally,party" range="100" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffEnemyNearby" target="self" />
+      </effect_group>
+    </buff>
+    <buff name="buffEnemyNearby" hidden="true" remove_on_death="true">
+      <duration value="1" />
+      <stack_type value="replace" />
+      <update_rate value=".1" />
+      <effect_group>
+        <requirements>
+          <requirement name="!EntityTagCompare" target="self" tags="player" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAllyNearby" target="self" />
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAllyNearby" target="selfAOE" target_tags="player,enemy" range="100" />
+      </effect_group>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffEnemyTracking" target="self" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAllyNearby" target="selfAOE" target_tags="player,enemy" range="100" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAllyNearby" target="self" />
+      </effect_group>
+    </buff>
+    <buff name="buffEnemyTracking" hidden="true" remove_on_death="true">
+      <duration value="1" />
+      <stack_type value="replace" />
+      <update_rate value=".5" />
+      <effect_group name="Track players fix">
+        <passive_effect name="Tracking" operation="base_set" value="1" tags="perkAT05">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="5" />
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </passive_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <set xpath="/buffs/buff[@name='buffAnimalTracker']">
+    <duration value="0" />
+    <update_rate value=".5" />
+    <display_value value=".AnimalTrackerDelay" />
+    <display_value_format value="time" />
+    <effect_group name="Startup">
+      <!-- set the time delay for animal tracking -->
+      <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value="4">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="LT" value="2" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value="3">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="2" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value="2">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="3" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value="0" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="add" value="-.5" />
+      <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".AnimalTooltipCounter" operation="set" value="0" />
+    </effect_group>
+    <effect_group name="check conditions for a successful track">
+      <requirement name="CVarCompare" cvar=".AnimalTrackerDelay" operation="LTE" value="0" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value=".0117">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="1" />
+        <requirement name="HasTrackedEntity" tags="perkAT01" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value=".0117">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="2" />
+        <requirement name="HasTrackedEntity" tags="perkAT02" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value=".0117">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="3" />
+        <requirement name="HasTrackedEntity" tags="perkAT03" />
+      </triggered_effect>
+    </effect_group>
+    <effect_group>
+      <!-- tracking successful, activate next buff -->
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffAnimalTrackerAcquired">
+        <requirement name="CVarCompare" cvar=".AnimalTrackerDelay" operation="Equals" value=".0117" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAnimalTracker">
+        <requirement name="CVarCompare" cvar=".AnimalTrackerDelay" operation="Equals" value=".0117" />
+      </triggered_effect>
+      <!-- abort -->
+      <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAnimalTracker">
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+      </triggered_effect>
+    </effect_group>
+    <effect_group name="Tracking not successful, shutdown">
+      <requirement name="CVarCompare" cvar=".AnimalTrackerDelay" operation="LTE" value="0" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffAnimalTrackerNoneTooltip">
+        <requirement name="CVarCompare" cvar=".AnimalTooltipCounter" operation="LTE" value="0" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTooltipCounter" operation="set" value="1" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAnimalTracker">
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerDelay" operation="set" value="2">
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+      </triggered_effect>
+    </effect_group>
+  </set>
+  <set xpath="/buffs/buff[@name='buffAnimalTracker']/@name_key">The Tracker</set>
+  <set xpath="/buffs/buff[@name='buffAnimalTracker']/@description_key">You are looking for tracks.</set>
+  <set xpath="/buffs/buff[@name='buffAnimalTrackerAcquired']">
+    <duration value="0" />
+    <display_value value=".AnimalTrackerLoseTimer" />
+    <display_value_format value="time" />
+    <effect_group>
+      <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAnimalTracker" />
+      <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".AnimalTrackerLoseTimer" operation="set" value="20" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerLoseTimer" operation="add" value="-1" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerLoseTimer" operation="set" value="20">
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".AnimalTrackerLoseTimer" operation="set" value="0" />
+      <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".AnimalTrackerTerminate" operation="set" value="0" />
+    </effect_group>
+    <effect_group name="check conditions for no trackable animals">
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerTerminate" operation="set" value="1" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerTerminate" operation="set" value="0">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="1" />
+        <requirement name="HasTrackedEntity" tags="perkAT01" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerTerminate" operation="set" value="0">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="2" />
+        <requirement name="HasTrackedEntity" tags="perkAT02" />
+      </triggered_effect>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".AnimalTrackerTerminate" operation="set" value="0">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="3" />
+        <requirement name="HasTrackedEntity" tags="perkAT03" />
+      </triggered_effect>
+    </effect_group>
+    <effect_group name="Track animals">
+      <passive_effect name="Tracking" operation="base_set" value="1" tags="perkAT01">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="1" />
+      </passive_effect>
+      <passive_effect name="Tracking" operation="base_set" value="1" tags="perkAT02">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="Equals" value="2" />
+      </passive_effect>
+      <passive_effect name="Tracking" operation="base_set" value="1" tags="perkAT03">
+        <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="3" />
+      </passive_effect>
+    </effect_group>
+    <effect_group name="Tracking time ran out or no targets">
+      <requirements compare_type="or">
+        <requirement name="CVarCompare" cvar=".AnimalTrackerLoseTimer" operation="LTE" value="0" />
+        <requirement name="CVarCompare" cvar=".AnimalTrackerTerminate" operation="Equals" value="1" />
+      </requirements>
+      <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffPerkAnimalTrackerLostTooltip" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAnimalTrackerAcquired" />
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffAnimalTracker">
+        <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+      </triggered_effect>
+    </effect_group>
+  </set>
+  <set xpath="/buffs/buff[@name='buffAnimalTrackerAcquired']/@name_key">The Tracker</set>
+  <append xpath="/buffs">
+    <buff name="buffZombieTracker" name_key="Zombie Tracker" description_key="You are currently looking for Zombies." icon="ui_game_symbol_zombie" icon_color="230,230,250" icon_blink="false">
+      <duration value="0" />
+      <update_rate value=".5" />
+      <display_value value=".ZombieTrackerDelay" />
+      <display_value_format value="time" />
+      <effect_group name="Startup ZT">
+        <!-- set the time delay for animal tracking -->
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ZombieTrackerDelay" operation="set" value="2">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="4" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ZombieTrackerDelay" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerDelay" operation="add" value="-.5" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ZombieTooltipCounter" operation="set" value="0" />
+      </effect_group>
+      <effect_group name="check conditions for a successful track zombie">
+        <requirement name="CVarCompare" cvar=".ZombieTrackerDelay" operation="LTE" value="0" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerDelay" operation="set" value=".0120">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="4" />
+          <requirement name="HasTrackedEntity" tags="perkAT04" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group>
+        <!-- tracking successful, activate next buff -->
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffZombieTrackerAcquired">
+          <requirement name="CVarCompare" cvar=".ZombieTrackerDelay" operation="Equals" value=".0120" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffZombieTracker">
+          <requirement name="CVarCompare" cvar=".ZombieTrackerDelay" operation="Equals" value=".0120" />
+        </triggered_effect>
+        <!-- abort -->
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffZombieTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group name="Tracking zombie not successful, shutdown">
+        <requirement name="CVarCompare" cvar=".ZombieTrackerDelay" operation="LTE" value="0" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffZombieTrackerNoneTooltip">
+          <requirement name="CVarCompare" cvar=".ZombieTooltipCounter" operation="LTE" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTooltipCounter" operation="set" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffZombieTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerDelay" operation="set" value="2">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <set xpath="/buffs/buff[@name='buffAnimalTrackerAcquired']/@description_key">You have found tracks.\nIf you walk or run you will eventually lose the trail.</set>
+  <append xpath="/buffs">
+    <buff name="buffZombieTrackerAcquired" name_key="Nearby Zombie Detected!" description_key="You detected a zombie nearby! Find them before they find you!" icon="ui_game_symbol_zombie" icon_color="255,50,103" icon_blink="true">
+      <duration value="0" />
+      <display_value value=".ZombieTrackerLoseTimer" />
+      <display_value_format value="time" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffZombieTracker" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ZombieTrackerLoseTimer" operation="set" value="20" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerLoseTimer" operation="add" value="-1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerLoseTimer" operation="set" value="20">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ZombieTrackerLoseTimer" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ZombieTrackerTerminate" operation="set" value="0" />
+      </effect_group>
+      <effect_group name="check conditions for no trackable zombies">
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerTerminate" operation="set" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZombieTrackerTerminate" operation="set" value="0">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="4" />
+          <requirement name="HasTrackedEntity" tags="perkAT04" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group name="Track zombies">
+        <passive_effect name="Tracking" operation="base_set" value="1" tags="perkAT04">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="4" />
+        </passive_effect>
+      </effect_group>
+      <effect_group name="Tracking time ran out or no zombies">
+        <requirements compare_type="or">
+          <requirement name="CVarCompare" cvar=".ZombieTrackerLoseTimer" operation="LTE" value="0" />
+          <requirement name="CVarCompare" cvar=".ZombieTrackerTerminate" operation="Equals" value="1" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffZombieTrackerLostTooltip" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffZombieTrackerAcquired" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffZombieTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <append xpath="/buffs">
+    <buff name="buffPlayerTracker" name_key="Player Tracker" description_key="You are currently looking for other players." icon="ui_game_symbol_quest" icon_color="230,230,250" icon_blink="false">
+      <duration value="0" />
+      <update_rate value=".5" />
+      <display_value value=".PlayerTrackerDelay" />
+      <display_value_format value="time" />
+      <effect_group name="Startup PT">
+        <!-- set the time delay for animal tracking -->
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".PlayerTrackerDelay" operation="set" value="2">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="5" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".PlayerTrackerDelay" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerDelay" operation="add" value="-.5" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".PlayerTooltipCounter" operation="set" value="0" />
+      </effect_group>
+      <effect_group name="check conditions for a successful track player">
+        <requirements>
+          <requirement name="CVarCompare" cvar=".PlayerTrackerDelay" operation="LTE" value="0" />
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="5" />
+          <requirement name="HasTrackedEntity" tags="enemyplayer" />
+          <requirement name="HasBuff" buff="buffEnemyTracking" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerDelay" operation="set" value=".0120" />
+      </effect_group>
+      <effect_group>
+        <!-- tracking successful, activate next buff -->
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffPlayerTrackerAcquired">
+          <requirement name="CVarCompare" cvar=".PlayerTrackerDelay" operation="Equals" value=".0120" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerTracker">
+          <requirement name="CVarCompare" cvar=".PlayerTrackerDelay" operation="Equals" value=".0120" />
+        </triggered_effect>
+        <!-- abort -->
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+        </triggered_effect>
+      </effect_group>
+      <effect_group name="Tracking player not successful, shutdown">
+        <requirement name="CVarCompare" cvar=".PlayerTrackerDelay" operation="LTE" value="0" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffPlayerTrackerNoneTooltip">
+          <requirement name="CVarCompare" cvar=".PlayerTooltipCounter" operation="LTE" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTooltipCounter" operation="set" value="1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerDelay" operation="set" value="2">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <append xpath="/buffs">
+    <buff name="buffPlayerTrackerAcquired" name_key="Nearby Player Detected!" description_key="You detected a player nearby! Find them before they find you!" icon="ui_game_symbol_quest" icon_color="255,50,103" icon_blink="true">
+      <duration value="0" />
+      <display_value_key value="Enemy Player Nearby!" />
+      <display_value value=".PlayerTrackerLoseTimer" />
+      <display_value_format value="time" />
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffPlayerTracker" />
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".PlayerTrackerLoseTimer" operation="set" value="10" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerLoseTimer" operation="add" value="-1" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerLoseTimer" operation="set" value="10">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".PlayerTrackerLoseTimer" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".PlayerTrackerTerminate" operation="set" value="0" />
+      </effect_group>
+      <effect_group name="check conditions for no trackable players">
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerTerminate" operation="set" value="1" />
+      </effect_group>
+      <effect_group>
+        <requirements>
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="5" />
+          <requirement name="HasTrackedEntity" tags="enemyplayer" />
+          <requirement name="HasBuff" buff="buffEnemyTracking" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".PlayerTrackerTerminate" operation="set" value="0" />
+      </effect_group>
+      <effect_group name="Track players">
+        <passive_effect name="Tracking" target="selfAOE" target_tags="player" range="100" operation="base_set" value="1" tags="enemyplayer">
+          <requirement name="ProgressionLevel" progression_name="perkAnimalTracker" operation="GTE" value="5" />
+        </passive_effect>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="player_tracking" play_in_head="true" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="player_tracking" play_in_head="true" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="player_tracking" play_in_head="true" />
+      </effect_group>
+      <effect_group name="Tracking time ran out or no players">
+        <requirements compare_type="or">
+          <requirement name="CVarCompare" cvar=".PlayerTrackerLoseTimer" operation="LTE" value="0" />
+          <requirement name="CVarCompare" cvar=".PlayerTrackerTerminate" operation="Equals" value="1" />
+        </requirements>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="buffPlayerTrackerLostTooltip" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPlayerTrackerAcquired" />
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffPlayerTracker">
+          <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1" />
+        </triggered_effect>
+      </effect_group>
+    </buff>
+  </append>
+  <!--End JayFusion The Tracker Code-->
+  <!--Start AGF 84 Slot Backpack Code-->
+  <!--Included updated carry capacity for GOD mode-->
+  <set xpath="/buffs/buff[@name='god']/effect_group/passive_effect[@name='CarryCapacity']/@value">84</set>
+  <!--Default = 45-->
+  <!--Included updated carry capacity for effects from Steroids-->
+  <set xpath="/buffs/buff[@name='buffDrugSteroids']/effect_group/passive_effect[@name='CarryCapacity']/@value">89</set>
+  <!--Default = 50, ?-->
+  <!--Included twitch buff pack mule-->
+  <set xpath="/buffs/buff[@name='twitch_buffPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">89</set>
+  <!--Default = 50, ?-->
+  <!--Included twitch buff encumbered, to slow you down-->
+  <set xpath="/buffs/buff[@name='twitch_buffEncumbered']/effect_group/passive_effect[@name='CarryCapacity']/@value">42</set>
+  <!--Default = 22, which rounded down is half of 45-->
+  <!--Updated Mobilited effect from encumberance.-->
+  <!--mobility effects need to be updated to match vanilla playstyle. Otherwise, you could come to a standstill.-->
+  <set xpath="/buffs/buff[@name='buffEncumberedInv']/effect_group/triggered_effect[@operation='multiply']/@value">0.01297</set>
+  <!--End AGF 84 Slot Backpack Code-->
+</configs>

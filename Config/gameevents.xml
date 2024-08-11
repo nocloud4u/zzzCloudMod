@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Give Cloud Mod Quest Upon First Spawn-->
+  <append xpath="/gameevents/action_sequence[@name='game_first_spawn']">
+    <action class="BeltTooltip">
+      <property name="tip_name" value="CloudMod" />
+      <property name="show_window" value="true" />
+      <property name="phase" value="1" />
+    </action>
+    <action class="Delay">
+      <property name="time" value="2" />
+      <property name="phase" value="2" />
+    </action>
+    <action class="AddQuest">
+      <property name="quest" value="CloudMod" />
+      <property name="phase" value="3" />
+    </action>
+  </append>
+  <!--Remove Giving The White River Citizen Quest As A Reward For Basics Challenges Group-->
+  <remove xpath="/gameevents/action_sequence[@name='challenge_group_reward_basics']/action[@class='Delay']" />
+  <remove xpath="/gameevents/action_sequence[@name='challenge_group_reward_basics']/action[@class='AddQuest']" />
+  <!--Smelly-->
+  <append xpath="/gameevents">
+    <action_sequence name="SmellyHorde">
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalWolf" />
+        <property name="spawn_count" value="1" />
+        <property name="min_distance" value="23" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="5" />
+        </requirement>
+        <requirement class="Gamestage">
+          <property name="operation" value="LT" />
+          <property name="game_stage" value="15" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalWolf" />
+        <property name="spawn_count" value="2" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="15" />
+        </requirement>
+        <requirement class="Gamestage">
+          <property name="operation" value="LT" />
+          <property name="game_stage" value="50" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalDireWolf" />
+        <property name="spawn_count" value="1" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="15" />
+        </requirement>
+        <requirement class="Gamestage">
+          <property name="operation" value="LT" />
+          <property name="game_stage" value="50" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalWolf" />
+        <property name="spawn_count" value="4" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="50" />
+        </requirement>
+        <requirement class="Gamestage">
+          <property name="operation" value="LT" />
+          <property name="game_stage" value="150" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalDireWolf" />
+        <property name="spawn_count" value="2" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="50" />
+        </requirement>
+        <requirement class="Gamestage">
+          <property name="operation" value="LT" />
+          <property name="game_stage" value="150" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalDireWolf" />
+        <property name="spawn_count" value="6" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="150" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalBear" />
+        <property name="spawn_count" value="2" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="150" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalZombieVulture,animalMountainLion,animalWolf,animalDireWolf,animalZombieDog" />
+        <property name="spawn_count" value="3" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="25" />
+        </requirement>
+        <!-- <requirement class="Gamestage">
+							<property name="operation" value="LT" />
+							<property name="game_stage" value="50" />
+						</requirement> -->
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalZombieVulture,animalZombieVultureRadiated,animalMountainLion,animalBear,animalDireWolf,animalZombieBear,animalBossGrace" />
+        <property name="spawn_count" value="1" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="50" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalZombieVulture,animalZombieVultureRadiated,animalMountainLion,animalBear,animalDireWolf,animalZombieBear,animalBossGrace,wildPack" />
+        <property name="spawn_count" value="1" />
+        <property name="min_distance" value="17" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="75" />
+        </requirement>
+      </action>
+      <action class="SpawnEntity">
+        <property name="entity_names" value="animalZombieVulture,animalZombieVultureRadiated,animalMountainLion,animalBear,animalDireWolf,animalZombieBear,animalBossGrace,wildPack" />
+        <property name="spawn_count" value="1" />
+        <property name="min_distance" value="13" />
+        <property name="max_distance" value="63" />
+        <property name="spawn_from_position" value="true" />
+        <property name="clear_position_on_complete" value="true" />
+        <property name="attack_target" value="false" />
+        <property name="party_addition" value="2" />
+        <requirement class="Gamestage">
+          <property name="operation" value="GTE" />
+          <property name="game_stage" value="100" />
+        </requirement>
+      </action>
+      <action class="BeltTooltip">
+        <property name="tip_name" value="tutorialTipSmelly" />
+        <property name="show_window" value="false" />
+        <property name="phase" value="1" />
+      </action>
+      <action class="PlaySound">
+        <property name="sound" value="wolfalert" />
+        <property name="phase" value="1" />
+      </action>
+      <action class="PlaySound">
+        <property name="sound" value="vulturealert" />
+        <property name="phase" value="1" />
+      </action>
+    </action_sequence>
+  </append>
+  <!--Casing Catch-->
+  <append xpath="/gameevents">
+    <action_sequence name="CasingCatch">
+      <action class="AddItems">
+        <property name="added_items" value="resourceBulletCasing" />
+        <property name="added_item_counts" value="1" />
+      </action>
+    </action_sequence>
+  </append>
+  <!--Begin Learn-By-Use Code-->
+  <append xpath="/gameevents">
+    <!--give a skill point to player = called from buffLBU_GiveProgressSkillPoint when a Perk's Progress reaches max level (progression.xml)-->
+    <action_sequence name="lbu_action_give_points">
+      <action class="AddSkillPoints">
+        <property name="skill_points" value="1" />
+      </action>
+      <action class="PlaySound">
+        <property name="sound" value="quest_restore_power_complete" />
+      </action>
+      <action class="BeltTooltip">
+        <property name="text" value="Max Skill Level - free Skill Point!" />
+      </action>
+    </action_sequence>
+    <!--same as lbu_action_give_points above but doesnt give skill point, just message and sound.-->
+    <action_sequence name="lbu_action_max_level">
+      <action class="PlaySound">
+        <property name="sound" value="quest_restore_power_complete" />
+      </action>
+      <action class="BeltTooltip">
+        <property name="text" value="Max Skill Level!" />
+      </action>
+    </action_sequence>
+  </append>
+  <!--End Learn-By-Use Code-->
+</configs>

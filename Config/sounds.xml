@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Start JayFusion The tracker Code-->
+  <append xpath="/Sounds">
+    <SoundDataNode name="player_tracking">
+      <AudioSource name="Sounds/AudioSource_UseAction" />
+      <Noise ID="2" noise="11" time="3" muffled_when_crouched="0.8" />
+      <AudioClip ClipName="Sounds/UseActions/open_apache_artifact_chest" Loop="true" />
+      <LocalCrouchVolumeScale value="0.5" />
+      <CrouchNoiseScale value="0.5" />
+      <NoiseScale value="1" />
+      <MaxVoices value="10" />
+      <MaxRepeatRate value="0.01" />
+    </SoundDataNode>
+  </append>
+  <!--End JayFusion The tracker Code-->
+  <!--Start Xyth's Light Sabres Code-->
+  <append xpath="/Sounds">
+    <SoundDataNode name="LazerSwoosh">
+      <AudioSource name="Sounds/AudioSource_Interact" />
+      <AudioClip ClipName="#@modfolder:Resources/LightSabres.unity3d?lightsabreswing" />
+      <LocalCrouchVolumeScale value="0.25" />
+      <CrouchNoiseScale value="0.05" />
+      <NoiseScale value=".1" />
+      <MaxVoices value="3" />
+      <MaxRepeatRate value="0.01" />
+    </SoundDataNode>
+    <SoundDataNode name="LazerHit">
+      <AudioSource name="Sounds/AudioSource_Interact" />
+      <AudioClip ClipName="#@modfolder:Resources/LightSabres.unity3d?lightsabrehit" />
+      <LocalCrouchVolumeScale value="0.25" />
+      <CrouchNoiseScale value="0.05" />
+      <NoiseScale value=".1" />
+      <MaxVoices value="3" />
+      <MaxRepeatRate value="0.01" />
+    </SoundDataNode>
+  </append>
+  <!--End Xyth's Light Sabres Code-->
+  <!--Start RussianDoods MagBow Code-->
+  <append xpath="/Sounds">
+    <!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+									Weapons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+    <!-- Magbow -->
+    <SoundDataNode name="magbow_fire">
+      <AudioSource name="Sounds/AudioSource_WeaponFire" />
+      <NetworkAudioSource name="Sounds/AudioSource_WeaponFire_Network" />
+      <Noise ID="0" noise="11" range="1" volume="3" time="3" muffled_when_crouched="0.5" />
+      <AudioClip ClipName="#@modfolder:Resources/Magbow_sounds.unity3d?Magbow_fire" />
+      <LocalCrouchVolumeScale value="1" />
+      <CrouchNoiseScale value="1" />
+      <NoiseScale value="1" />
+      <MaxVoices value="3" />
+      <MaxRepeatRate value="0.001" />
+    </SoundDataNode>
+  </append>
+  <!--End RussianDoods MagBow Code-->
+</configs>

@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Start AGF 84 Slot Backpack Code-->
+  <!--Set the starting carry capacity. Max capacity minus encumbered slots.-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='CarryCapacity']/@value">48</set>
+  <!--Total capacity - 36-->
+  <!--Sets the new max backpack size.-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BagSize']/@value">84</set>
+  <!--End AGF 84 Slot Backpack Code-->
+  <!--Starter Items-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvival']/@value">bedrollBlockVariantHelper</set>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalMP']/@value">,Clouds's Starter Items 2.0</append>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalSP']/@value">,Clouds's Starter Items 2.0</append>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvival']/@value">,Clouds's Starter Items 2.0</append>
+  <!--Bears Drop Hide-->
+  <append xpath="/entity_classes/entity_class[@name='animalBear']">
+    <drop event="Harvest" name="resourceBearHide" tag="butcherHarvest" count="1" prob="0.50" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='animalZombieBear']">
+    <drop event="Harvest" name="resourceBearHide" tag="butcherHarvest" count="1" prob="0.75" />
+  </append>
+  <!--Animal Corpse Stay Longer-->
+  <set xpath="/entity_classes/entity_class[starts-with(@name,'animal')]/property[@name='TimeStayAfterDeath']/@value">1200</set>
+  <!--Back Pack Stay Longer-->
+  <set xpath="/entity_classes/entity_class[@name='Backpack']/property[@name='TimeStayAfterDeath']/@value">43200</set>
+  <!--Loot Bags Stay Longer-->
+  <set xpath="/entity_classes/entity_class[starts-with(@name,'EntityLootContainer')]/property[@name='TimeStayAfterDeath']/@value">7200</set>
+  <!--Better Junk Sledge/Turret-->
+  <set xpath="/entity_classes/entity_class[@name='junkTurretSledge']/property[@name='MaxDistance']/@value">2.75</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretSledge']/property[@name='MaxOwnerDistance']/@value">10000</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretSledge']/property[@name='TurnSpeed']/@value">75</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretSledge']/property[@name='PitchRange']/@value">125</set>
+  <append xpath="/entity_classes/entity_class[@name='junkTurretGun']">
+    <effect_group>
+      <triggered_effect trigger="onSelfFirstSpawn" action="AttachPrefabToEntity" local_offset=".03,0,.195" local_rotation="0,180,-90" prefab="@:Other/Items/Mods/Sides/side_attachment_flashlightPrefab.prefab" parent_transform="Muzzle" />
+      <triggered_effect trigger="onSelfFirstSpawn" action="SetTransformActive" active="true" parent_transform="Muzzle" transform_path="lightSource" />
+    </effect_group>
+  </append>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretGun']/property[@name='MaxDistance']/@value">25</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretGun']/property[@name='MaxOwnerDistance']/@value">10000</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretGun']/property[@name='TurnSpeed']/@value">75</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretGun']/property[@name='PitchRange']/@value">125</set>
+  <set xpath="/entity_classes/entity_class[@name='junkTurretGun']/property[@name='YawRange']/@value">125</set>
+  <!--Lower Water Base Drain Rate-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='WaterChangeOT' and contains(@value, '.0111')]/@value">.00555</set>
+  <!--Lower Food Base Drain Rate-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='FoodChangeOT' and contains(@value, '.00833')]/@value">.00555</set>
+  <!--Lower Cost of Water to Regen Health-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[@name='food/water balancing']/passive_effect[@name='WaterLossPerHealthPointGained']/@value">0.03<!--0.06 Default--></set>
+  <!--Lower Cost of Water to Regen Stamina-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[@name='food/water balancing']/passive_effect[@name='WaterLossPerStaminaPointGained']/@value">0.002265<!--0.00453 Default--></set>
+  <!--Lower Cost Of Food to Regen Stamina-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[@name='food/water balancing']/passive_effect[@name='FoodLossPerStaminaPointGained']/@value">0.00204<!--0.00408 Default--></set>
+  <!--Increase Base Max Health-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='HealthMax']/@value">200</set>
+  <!--Increase Base Max Stamina-->
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='StaminaMax']/@value">200</set>
+  <!--Remove Zombie Destroy Everything-->
+  <set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITask']/@value">
+	BreakBlock|
+	Territorial|
+	ApproachDistraction|
+	ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal,0,EntityAnimal|
+	ApproachSpot|
+	Look|
+	Wander|
+	</set>
+  <!--Zombie Loot-->
+  <set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='TimeStayAfterDeath']/@value">500</set>
+  <append xpath="/entity_classes/entity_class[@name='zombieArlene']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieArleneFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieArleneRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMarlene']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMarleneFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMarleneRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombiePartyGirl']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombiePartyGirlFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombiePartyGirlRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieNurse']">
+    <property name="LootListOnDeath" value="NurseZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieNurseFeral']">
+    <property name="LootListOnDeath" value="NurseZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieNurseRadiated']">
+    <property name="LootListOnDeath" value="NurseZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJoe']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJoeFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJoeRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSteve']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSteveFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSteveRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieTomClark']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieTomClarkFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieTomClarkRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBusinessMan']">
+    <property name="LootListOnDeath" value="BusinessZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBusinessManFeral']">
+    <property name="LootListOnDeath" value="BusinessZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBusinessManRadiated']">
+    <property name="LootListOnDeath" value="BusinessZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBurnt']">
+    <property name="LootListOnDeath" value="BurntZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBurntFeral']">
+    <property name="LootListOnDeath" value="BurntZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBurntRadiated']">
+    <property name="LootListOnDeath" value="BurntZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSpider']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSpiderFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSpiderRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBoe']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBoeFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBoeRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMaleHazmat']">
+    <property name="LootListOnDeath" value="HazmatZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMaleHazmatFeral']">
+    <property name="LootListOnDeath" value="HazmatZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMaleHazmatRadiated']">
+    <property name="LootListOnDeath" value="HazmatZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJanitor']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJanitorFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieJanitorRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieInmate']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieInmateFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieInmateRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMoe']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMoeFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMoeRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLab']">
+    <property name="LootListOnDeath" value="LabTechZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLabFeral']">
+    <property name="LootListOnDeath" value="LabTechZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLabRadiated']">
+    <property name="LootListOnDeath" value="LabTechZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="3000" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieDarlene']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieDarleneFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieDarleneRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieYo']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieYoFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieYoRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieUtilityWorker']">
+    <property name="LootListOnDeath" value="UtilityZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieUtilityWorkerFeral']">
+    <property name="LootListOnDeath" value="UtilityZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieUtilityWorkerRadiated']">
+    <property name="LootListOnDeath" value="UtilityZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBiker']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBikerFeral']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBikerRadiated']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLumberjack']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLumberjackFeral']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieLumberjackRadiated']">
+    <property name="LootListOnDeath" value="LumberjackZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFemaleFat']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFemaleFatFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFemaleFatRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatHawaiian']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatHawaiianFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatHawaiianRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBowler']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBowlerFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieBowlerRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatCop']">
+    <property name="LootListOnDeath" value="CopZed" />
+    <property name="LootDropProb" value="0" />
+    <property name="DeadBodyHitPoints" value="3000" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatCopFeral']">
+    <property name="LootListOnDeath" value="CopZed" />
+    <property name="LootDropProb" value="0" />
+    <property name="DeadBodyHitPoints" value="3000" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieFatCopRadiated']">
+    <property name="LootListOnDeath" value="CopZed" />
+    <property name="LootDropProb" value="0" />
+    <property name="DeadBodyHitPoints" value="3000" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSkateboarder']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSkateboarderFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSkateboarderRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSoldier']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSoldierFeral']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSoldierRadiated']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieWightFeral']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieWightRadiated']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieScreamer']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieScreamerFeral']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieScreamerRadiated']">
+    <property name="LootListOnDeath" value="BasicZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMutated']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMutatedFeral']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieMutatedRadiated']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieDemolition']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSteveCrawler']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieSteveCrawlerFeral']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <!--Loot Guppy Zombies-->
+  <append xpath="/entity_classes/entity_class[starts-with(@name,'GuppyZombie')]">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <append xpath="/entity_classes/entity_class[starts-with(@name,'zombieGuppy')]">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <!--Loot Oak's Head Hundters-->
+  <append xpath="/entity_classes/entity_class[@name='zombieBossTemplate']">
+    <property name="LootListOnDeath" value="ArmyZed" />
+    <property name="LootDropProb" value="0" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+    <property name="LootDropEntityClass" value="air" />
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+  </append>
+  <!--Generic NPC Bags-->
+  <remove xpath="/entity_classes/entity_class[starts-with(@name,'npc')]/property[@name='DeadBodyHitPoints']" />
+  <remove xpath="/entity_classes/entity_class[starts-with(@name,'npc')]/property[@name='TimeStayAfterDeath']" />
+  <append xpath="/entity_classes/entity_class[starts-with(@name,'npc')]">
+    <property name="DeadBodyHitPoints" value="300" />
+    <property name="TimeStayAfterDeath" value="300" />
+    <property name="LootDropProb" value="1" />
+    <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+    <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+    <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+    <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+  </append>
+  <!--****Set Dead Zombie Dead Body Hit Points Here****-->
+  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='DeadBodyHitPoints']/@value">300</set>
+  <!--****Set Dead Zombie Dead Body Stay Time Here****-->
+  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='TimeStayAfterDeath']/@value">300</set>
+  <!--Begin Khaine's Return of Behemoth Code-->
+  <append xpath="/entity_classes">
+    <entity_class name="zombieBehemoth" extends="zombieTemplateMale">
+      <property name="UserSpawnType" value="Menu" />
+      <property name="Tags" value="entity,zombie,walker,feral,behemoth,cp" />
+      <property name="Prefab" value="NPC" />
+      <property name="SoundRandom" value="crawler_roam" />
+      <property name="SoundAlert" value="crawler_alert" />
+      <property name="SoundSense" value="crawler_sense" />
+      <property name="SoundHurt" value="crawler_pain" />
+      <property name="SoundDeath" value="crawler_death" />
+      <property name="SoundAttack" value="crawler_attack" />
+      <property name="SoundSleeperSense" value="sleepersense" />
+      <property name="SoundSleeperBackToSleep" value="sleeperbacktosleep" />
+      <property name="Mesh" value="#@modfolder:Assets/Behemoths.unity3d?zombieBehemoth" />
+      <property name="AvatarController" value="AvatarZombieController" />
+      <property name="ModelType" value="Standard" />
+      <property name="WalkType" value="2" />
+      <property name="Mass" value="500" />
+      <property name="ExperienceGain" value="6735" />
+      <property name="MaxHealth" value="5000" />
+      <property name="PhysicsBody" value="Behemoth" />
+      <property name="RootMotion" value="true" />
+      <property name="HasDeathAnim" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="HandItem" value="meleeHandZombieBehemoth" />
+      <property name="DanceType" value="1" />
+      <property name="PainResistPerHit" value="100" />
+      <property name="Dismemberment" value="true" />
+      <!-- Gameplay -->
+      <property name="MoveSpeed" value="0.06" />
+      <property name="MoveSpeedAggro" value=".5, 1.35" />
+      <property name="SizeScale" value="2" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="5000" />
+        <passive_effect name="HealthMax" operation="perc_set" value="1" />
+        <!-- Zombie HP scale -->
+      </effect_group>
+      <property name="LootListOnDeath" value="ArmyZed" />
+      <property name="LootDropProb" value="0" />
+      <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+      <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+      <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+      <property name="LootDropEntityClass" value="air" />
+      <property name="DeadBodyHitPoints" value="500" />
+      <property name="TimeStayAfterDeath" value="300" />
+    </entity_class>
+    <entity_class name="zombieBehemothRadiated" extends="zombieTemplateMale">
+      <property name="UserSpawnType" value="Menu" />
+      <property name="Tags" value="entity,zombie,walker,feral,radiated,behemoth,cp" />
+      <property name="Prefab" value="NPC" />
+      <property name="SoundRandom" value="crawler_roam" />
+      <property name="SoundAlert" value="crawler_alert" />
+      <property name="SoundSense" value="crawler_sense" />
+      <property name="SoundHurt" value="crawler_pain" />
+      <property name="SoundDeath" value="crawler_death" />
+      <property name="SoundAttack" value="crawler_attack" />
+      <property name="SoundSleeperSense" value="sleepersense" />
+      <property name="SoundSleeperBackToSleep" value="sleeperbacktosleep" />
+      <property name="Mesh" value="#@modfolder:Assets/Behemoths.unity3d?zombieBehemothRadiated" />
+      <property name="AvatarController" value="AvatarZombieController" />
+      <property name="ModelType" value="Standard" />
+      <property name="WalkType" value="2" />
+      <property name="Mass" value="500" />
+      <property name="ExperienceGain" value="6735" />
+      <property name="MaxHealth" value="5000" />
+      <property name="PhysicsBody" value="Behemoth" />
+      <property name="RootMotion" value="true" />
+      <property name="HasDeathAnim" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="HandItem" value="meleeHandZombieBehemoth" />
+      <property name="DanceType" value="1" />
+      <property name="PainResistPerHit" value="100" />
+      <property name="Dismemberment" value="true" />
+      <!-- Gameplay -->
+      <property name="MoveSpeed" value="0.06" />
+      <property name="MoveSpeedAggro" value=".5, 1.35" />
+      <property name="SizeScale" value="2" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="8000" />
+        <passive_effect name="HealthMax" operation="perc_set" value="1" />
+        <!-- Zombie HP scale -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="0.25" />
+        <passive_effect name="HealthChangeOT" operation="base_set" value="1.4" />
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1" />
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="3.7" />
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen" />
+      </effect_group>
+      <property name="LootListOnDeath" value="ArmyZed" />
+      <property name="LootDropProb" value="0" />
+      <drop event="Harvest" name="resourceCloth" count="4" tool_category="Butcher" />
+      <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2" />
+      <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1" />
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2" />
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+      <property name="LootDropEntityClass" value="air" />
+      <property name="DeadBodyHitPoints" value="500" />
+      <property name="TimeStayAfterDeath" value="300" />
+    </entity_class>
+  </append>
+  <!--End Khaine's Return of Behemoth Code-->
+  <!--Start JayFusion The tracker Code-->
+  <append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'zombie')]/@value">,perkAT04</append>
+  <append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'boss') and not(contains(@value, 'perkAT04'))]/@value">,perkAT04</append>
+  <append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'player')]/@value">,perkAT05,enemyplayer</append>
+  <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='NavObject']/@value">twitch_spawn,twitch_spawn_other,clear_sleeper,zombies</set>
+  <append xpath="/entity_classes/entity_class[contains(@name, 'Feral')]">
+    <property name="NavObject" value="twitch_spawn,twitch_spawn_other,clear_sleeper,feralzombies" />
+  </append>
+  <append xpath="/entity_classes/entity_class[contains(@name, 'Radiated')]">
+    <property name="NavObject" value="twitch_spawn,twitch_spawn_other,clear_sleeper,radiatedzombies" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='animalBossGrace']">
+    <property name="NavObject" value="bosszombies" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='zombieDemolition']">
+    <property name="NavObject" value="twitch_spawn,twitch_spawn_other,clear_sleeper,bosszombies" />
+  </append>
+  <set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='NavObject']/@value">enemyplayer,party,ally,player</set>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='Buffs']/@value">,buffTrackingCheck,buffEnemyNearbyCheck</append>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']">
+    <property name="CompassIcon" value="ui_game_symbol_run" />
+    <property name="CompassUpIcon" value="ui_game_symbol_run" />
+    <property name="CompassDownIcon" value="ui_game_symbol_run" />
+  </append>
+  <append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group">
+    <triggered_effect trigger="onSelfEnteredGame" action="AddBuff" target="self" buff="buffTrackingCheck" />
+    <triggered_effect trigger="onSelfRespawn" action="AddBuff" target="self" buff="buffTrackingCheck" />
+    <triggered_effect trigger="onSelfEnteredGame" action="AddBuff" target="self" buff="buffEnemyNearbyCheck" />
+    <triggered_effect trigger="onSelfRespawn" action="AddBuff" target="self" buff="buffEnemyNearbyCheck" />
+  </append>
+  <append xpath="/entity_classes/entity_class[contains(@name, 'zombieScreamer')]">
+    <property name="NavObject" value="twitch_spawn,twitch_spawn_other,clear_sleeper,screamers" />
+  </append>
+  <!--End JayFusion The tracker Code-->
+  <!--Begin FillUnderscore Improved Hordes Code-->
+  <!-- Allows the animal hordes to work properly -->
+  <remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-1']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-2']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-3']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-4']" />
+  <append xpath="/entity_classes/entity_class[@name='animalTemplateTimid']">
+    <property name="AITask-1" value="RunawayWhenHurt" />
+    <property name="AITask-2" value="RunawayFromEntity" data="class=EntityPlayer,EntityZombie,EntityEnemyAnimal" />
+    <property name="AITask-3" value="ApproachSpot" />
+    <property name="AITask-4" value="Look" />
+    <property name="AITask-5" value="Wander" />
+  </append>
+  <!-- Same for rabbits -->
+  <remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-1']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-2']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-3']" />
+  <remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-4']" />
+  <append xpath="/entity_classes/entity_class[@name='animalRabbit']">
+    <property name="AITask-1" value="RunawayWhenHurt" />
+    <property name="AITask-2" value="RunawayFromEntity" data="class=EntityPlayer,EntityZombie,EntityEnemyAnimal;safeDistance=20" />
+    <property name="AITask-3" value="ApproachSpot" />
+    <property name="AITask-4" value="Look" />
+    <property name="AITask-5" value="Wander" />
+  </append>
+  <!--End FillUnderscore Improved Hordes Code-->
+</configs>

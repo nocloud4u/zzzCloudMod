@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--Add New Starter Quest-->
+  <append xpath="/quests">
+    <quest id="CloudMod">
+      <objective type="BlockPlace" id="bedrollBlockVariantHelper" value="1" />
+      <property name="icon" value="ui_game_symbol_map_bed" />
+      <action type="TrackQuest" />
+      <action type="ShowMessageWindow">
+        <property name="message" value="CloudMod" />
+        <property name="title" value="Cloud Mod" />
+        <property name="delay" value="3" />
+      </action>
+      <property name="quest_hints" value="Place your bedroll" />
+      <property name="shareable" value="false" />
+      <property name="difficulty" value="veryeasy" />
+      <property name="category_key" value="quest" />
+      <property name="name_key" value="Cloud Mod" />
+      <property name="subtitle_key" value="Cloud Mod" />
+      <property name="description_key" value="Place your bedroll to recieve a blessing from the Cloud." />
+      <reward type="Item" id="meleeToolRepairT0TazasStoneAxe" value="3" />
+      <reward type="Item" id="meleeWpnClubT1BaseballBat" value="3" />
+      <reward type="Item" id="gunHandgunT1Pistol" value="3" />
+      <reward type="Item" id="ammo9mmBulletBall" value="100" />
+      <reward type="Item" id="armorPrimitiveBoots" value="3" />
+      <reward type="Item" id="armorPrimitiveGloves" value="3" />
+      <reward type="Item" id="armorPrimitiveOutfit" value="3" />
+      <reward type="Item" id="armorPrimitiveHelmet" value="3" />
+      <reward type="Item" id="modArmorHelmetLight" />
+      <reward type="Exp" value="100"></reward>
+      <reward type="Quest" id="quest_whiteRiverCitizen1" />
+    </quest>
+  </append>
+  <!--Edit Existing White River Citizen Quest-->
+  <append xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
+    <action type="TrackQuest" />
+    <reward type="Item" id="meleeToolShovelT1IronShovel" ischosen="true" value="3"></reward>
+    <reward type="Quest" id="training_wayoftheblade1">
+      <property name="chainquest" value="false" />
+    </reward>
+    <reward type="SkillPoints" value="10" />
+    <reward type="Exp" value="9500" />
+  </append>
+  <remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']/action[@type='ShowMessageWindow']"></remove>
+  <!--Remove Tracking Craft A Land Claim Challenge Upon Completion Of Trader Quest -->
+  <!--As You Haven't Done The Basic Challenges Yet (Just Click Redeem On Them)-->
+  <remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']/action[@type='TrackChallenge']"></remove>
+  <!--Remove The Stone Shovel As You Will Recieve An Iron One-->
+  <remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']/reward[@id='meleeToolShovelT0StoneShovel']" />
+  <!--Way of the Blade-->
+  <append xpath="/quests">
+    <!-- Way of the Blade 1 - Craft a Bone Shiv -->
+    <quest id="training_wayoftheblade1">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade1" />
+      <property name="subtitle_key" value="training_wayoftheblade1_subtitle" />
+      <property name="description_key" value="training_wayoftheblade1_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="veryeasy" />
+      <property name="offer_key" value="Accept this quest chain to start your journey on 'The Way of the Blade'" />
+      <property name="shareable" value="false" />
+      <objective type="FetchKeep" id="resourceBone" value="5" phase="1" />
+      <objective type="Craft">
+        <property name="phase" value="2" />
+        <property name="item" value="meleeWpnBladeT0BoneKnife" />
+        <property name="count" value="1" />
+      </objective>
+      <reward type="Exp" value="1000" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade2" />
+    </quest>
+    <!-- Way of the Blade 2 - Kill Zombies with Bone Shiv (Novice) -->
+    <quest id="training_wayoftheblade2">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade2" />
+      <property name="subtitle_key" value="training_wayoftheblade2_subtitle" />
+      <property name="description_key" value="training_wayoftheblade2_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="easy" />
+      <property name="shareable" value="false" />
+      <property name="quest_hints" value="Kill anything using a Bone Shiv" />
+      <objective type="EntityKill" value="5" phase="1" />
+      <requirement type="Quests.Requirements.Holding" id="meleeWpnBladeT0BoneKnife" />
+      <reward type="Exp" value="1500" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade3" />
+    </quest>
+    <!-- Way of the Blade 3 - Craft a Hunting Knife -->
+    <quest id="training_wayoftheblade3">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade3" />
+      <property name="subtitle_key" value="training_wayoftheblade3_subtitle" />
+      <property name="description_key" value="training_wayoftheblade3_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="easy" />
+      <property name="shareable" value="false" />
+      <objective type="FetchKeep" id="meleeWpnBladeT1HuntingKnife" value="1" phase="1" />
+      <reward type="Exp" value="1000" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade4" />
+    </quest>
+    <!-- Way of the Blade 4 - Kill more Zombies with Hunting Knife (Apprentice) -->
+    <quest id="training_wayoftheblade4">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade4" />
+      <property name="subtitle_key" value="training_wayoftheblade4_subtitle" />
+      <property name="description_key" value="training_wayoftheblade4_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="medium" />
+      <property name="shareable" value="false" />
+      <property name="quest_hints" value="Kill anything using a Hunting Knife" />
+      <objective type="EntityKill" value="10" phase="1" />
+      <requirement type="Quests.Requirements.Holding" id="meleeWpnBladeT1HuntingKnife" />
+      <reward type="Exp" value="2500" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade5" />
+    </quest>
+    <!-- Way of the Blade 7 - Craft a Machete /> -->
+    <quest id="training_wayoftheblade5">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade7" />
+      <property name="subtitle_key" value="training_wayoftheblade7_subtitle" />
+      <property name="description_key" value="training_wayoftheblade7_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="easy" />
+      <property name="shareable" value="false" />
+      <objective type="FetchKeep" id="meleeWpnBladeT3Machete" value="1" phase="1" />
+      <reward type="Exp" value="1000" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade6" />
+    </quest>
+    <!-- Way of the Blade 8 - More zombie killing with a Machete (Expert) /> -->
+    <quest id="training_wayoftheblade6">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade8" />
+      <property name="subtitle_key" value="training_wayoftheblade8_subtitle" />
+      <property name="description_key" value="training_wayoftheblade8_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="hard" />
+      <property name="shareable" value="false" />
+      <property name="quest_hints" value="Kill anything using a Machete" />
+      <objective type="EntityKill" value="30" phase="1" />
+      <requirement type="Quests.Requirements.Holding" id="meleeWpnBladeT3Machete" />
+      <reward type="Exp" value="10000" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade7" />
+    </quest>
+    <!-- Way of the Blade 9 - Craft the Survivor's Katana parts and sword /> -->
+    <quest id="training_wayoftheblade7">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade9" />
+      <property name="subtitle_key" value="training_wayoftheblade9_subtitle" />
+      <property name="description_key" value="training_wayoftheblade9_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="hard" />
+      <property name="shareable" value="false" />
+      <objective type="FetchKeep" id="partsKatanaBlade" value="1" phase="1" />
+      <objective type="FetchKeep" id="partsKatanaHandle" value="1" phase="1" />
+      <objective type="FetchKeep" id="partsKatanaSpacer" value="1" phase="1" />
+      <objective type="Craft">
+        <property name="phase" value="2" />
+        <property name="item" value="meleeKatanaSword" />
+        <property name="count" value="1" />
+      </objective>
+      <reward type="Exp" value="2000" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <reward type="Quest" id="training_wayoftheblade8" />
+    </quest>
+    <!-- Way of the Blade 10 - Well now the killing has really started! (Master) /> -->
+    <quest id="training_wayoftheblade8">
+      <property name="group_name_key" value="training_wayoftheblade" />
+      <property name="name_key" value="training_wayoftheblade10" />
+      <property name="subtitle_key" value="training_wayoftheblade10_subtitle" />
+      <property name="description_key" value="training_wayoftheblade10_description" />
+      <property name="icon" value="ui_game_symbol_knife" />
+      <property name="category_key" value="quest" />
+      <property name="difficulty" value="insane" />
+      <property name="shareable" value="false" />
+      <property name="quest_hints" value="Kill anything using then Survivor's Katana" />
+      <objective type="EntityKill" value="50" phase="1" />
+      <requirement type="Quests.Requirements.Holding" id="meleeKatanaSword" />
+      <reward type="SkillPoints" value="5" chainreward="true" />
+      <reward type="Item" id="bladesSkillMagazine" value="5" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="training_wayoftheblade_complete" operation="set" value="1" />
+      </effect_group>
+    </quest>
+  </append>
+  <append xpath="/quests/quest[@id='quest_tier4complete']">
+    <reward type="LootItem" id="groupQuestmeleeMachete" ischosen="true" value="5" />
+  </append>
+  <append xpath="/quests/quest[@id='quest_tier5complete']">
+    <reward type="LootItem" id="groupQuestmeleeMachete" ischosen="true" value="6" />
+  </append>
+  <append xpath="/quests/quest[@id='quest_tier6complete']">
+    <reward type="LootItem" id="groupQuestmeleeMachete" ischosen="true" value="7" />
+  </append>
+  <append xpath="/quests/quest[@id='quest_tier5complete']">
+    <reward type="LootItem" id="groupQuestmeleeKatanaSword" ischosen="true" value="6" />
+  </append>
+  <append xpath="/quests/quest[@id='quest_tier6complete']">
+    <reward type="LootItem" id="groupQuestmeleeKatanaSword" ischosen="true" value="7" />
+  </append>
+  <!--MagBow T6 Quest Reward-->
+  <append xpath="/quests/quest[@id='quest_tier6complete']">
+    <reward id="groupQuestMagbow" type="LootItem" ischosen="true" value="7" />
+    <reward id="groupQuestRadPills" type="LootItem" ischosen="true" value="2" />
+  </append>
+</configs>

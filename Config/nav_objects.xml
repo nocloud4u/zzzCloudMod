@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configs>
+  <!--NPC Tracker-->
+  <append xpath="/nav_object_classes">
+    <nav_object_class name="NPC_Track">
+      <map_settings>
+        <property name="player_name" value="" />
+        <property name="sprite_name" value="ui_game_symbol_map_player_arrow" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="color" value="125,125,125,255" />
+        <property name="min_fade_percent" value="1" />
+        <property name="has_pulse" value="true" />
+        <property name="use_rotation" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="ui_game_symbol_map_player_arrow" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="color" value="125,125,125,255" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="ui_game_symbol_map_player_arrow" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="color" value="125,125,125,255" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+  </append>
+  <!--No Sleeper Dots on compass-->
+  <set xpath="nav_object_classes/nav_object_class[@name='clear_sleeper']/compass_settings/property[@name='color']/@value">255,0,0,0</set>
+  <!--Start JayFusion The Tracker Code-->
+  <set xpath="/nav_object_classes/nav_object_class[@name='player']">
+    <property name="requirement_type" value="IsPlayer" />
+    <map_settings>
+      <property name="sprite_name" value="ui_game_symbol_map_player_arrow" />
+      <property name="min_distance" value="0" />
+      <property name="max_distance" value="-1" />
+      <property name="color" value="255,255,255,255" />
+      <property name="has_pulse" value="true" />
+      <property name="use_rotation" value="true" />
+    </map_settings>
+    <compass_settings>
+      <property name="sprite_name" value="" />
+      <property name="min_distance" value="0" />
+      <property name="max_distance" value="0" />
+      <property name="color" value="0,0,0,0" />
+      <property name="min_fade_percent" value="1" />
+      <property name="has_pulse" value="false" />
+      <property name="icon_clamped" value="false" />
+    </compass_settings>
+    <onscreen_settings>
+      <property name="sprite_name" value="" />
+      <property name="min_distance" value="0" />
+      <property name="max_distance" value="0" />
+      <property name="color" value="0,0,0,0" />
+      <property name="min_fade_percent" value="1" />
+      <property name="has_pulse" value="false" />
+      <property name="show_distance" value="false" />
+      <property name="offset" value="0,0,0" />
+    </onscreen_settings>
+  </set>
+  <append xpath="/nav_object_classes">
+    <nav_object_class name="zombies">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="false" />
+      <map_settings>
+        <property name="sprite_name" value="Walker" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="has_pulse" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="Walker" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="Walker" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+    <nav_object_class name="feralzombies">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="false" />
+      <map_settings>
+        <property name="sprite_name" value="Feral" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="has_pulse" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="Feral" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="Feral" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+    <nav_object_class name="radiatedzombies">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="false" />
+      <map_settings>
+        <property name="sprite_name" value="Rad" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="has_pulse" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="Rad" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="Rad" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+    <nav_object_class name="bosszombies">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="false" />
+      <map_settings>
+        <property name="sprite_name" value="Demo" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="has_pulse" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="Demo" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="Demo" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+    <nav_object_class name="screamers">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="false" />
+      <map_settings>
+        <property name="sprite_name" value="Screamer" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="-1" />
+        <property name="has_pulse" value="true" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="Screamer" />
+        <property name="min_distance" value="0" />
+        <property name="max_scale_distance" value="1024" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="Screamer" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="25" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+    <nav_object_class name="enemyplayer">
+      <property name="requirement_type" value="Tracking" />
+      <property name="use_override_icon" value="true" />
+      <map_settings>
+        <property name="player_name" value="" />
+        <property name="sprite_name" value="ui_game_symbol_map_player_arrow" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="0" />
+        <property name="color" value="0,0,0,0" />
+        <property name="min_fade_percent" value="1" />
+        <property name="has_pulse" value="false" />
+        <property name="use_rotation" value="false" />
+      </map_settings>
+      <compass_settings>
+        <property name="sprite_name" value="ui_game_symbol_run" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="30" />
+        <property name="color" value="255,0,0,255" />
+        <property name="has_pulse" value="true" />
+        <property name="icon_clamped" value="false" />
+      </compass_settings>
+      <onscreen_settings>
+        <property name="sprite_name" value="ui_game_symbol_run" />
+        <property name="min_distance" value="0" />
+        <property name="max_distance" value="10" />
+        <property name="color" value="255,0,0,255" />
+        <property name="has_pulse" value="true" />
+        <property name="show_distance" value="true" />
+        <property name="text_type" value="Distance" />
+        <property name="show_offscreen" value="true" />
+        <property name="offset" value="0,1,0" />
+      </onscreen_settings>
+    </nav_object_class>
+  </append>
+  <append xpath="/nav_object_classes/nav_object_class[@name='animaltracking_timid']/onscreen_settings">
+    <property name="show_distance" value="true" />
+    <property name="text_type" value="Distance" />
+  </append>
+  <set xpath="nav_object_classes/nav_object_class[@name='clear_sleeper']/compass_settings/property[@name='color']/@value">255,0,0,0</set>
+  <!--End JayFusion The Tracker Code-->
+</configs>
